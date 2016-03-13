@@ -1,0 +1,9 @@
+﻿@model TextIT.Models.Tekst
+
+@{
+    ViewBag.Title = "Tekstovi";
+}
+
+<h2>Dodaj tekst</h2>
+<input type="button" value="Dodaj novi tekst" onclick="@("window.location.href='" + @Url.Action("KreirajTekst", "Tekst") + "'");" />
+

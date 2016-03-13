@@ -1,0 +1,9 @@
+Napraviti grupe, mogucnost da se kreira grupa i da se u tu grupu dodaju zeljeni tekstovi
+
+
+
+Ocjenjivanje
+hashtag - klix pretraga po kljucnim rijecima
+
+Text - tekstovi po pregledima
+kad je objavljen text, izmijenjen
