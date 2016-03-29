@@ -1,0 +1,81 @@
+﻿@model TextIT.Models.Korisnik
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "HomeView", FormMethod.Post))
+{
+    
+    @Html.AntiForgeryToken()         
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.ime)</td>
+            <td>@Html.TextBoxFor(a => a.ime)</td>
+            <td>@Html.ValidationMessageFor(a => a.ime)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.sifra)
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.sifra)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.sifra)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+                @*<button id="Login">Logirajte se</button>*@
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+    
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script >
+    
+    //$(function () {
+    //    $("#Login").click(function () {
+
+    //        var request = $.ajax({
+
+    //            url: "http://localhost:50073/api/Korisnik",
+    //            method: "GET",
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            data: {ime: $("#ime").val(), sifra:$("#sifra").val()}, 
+    //            success: function (response) {
+    //                sessionStorage.setItem("TipKorisnika", response.tipKorisnika);
+    //                window.location.href = "http://localhost:50073/HomeView/Index";
+                    
+    //            },
+    //            error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //                alert("Desila se greska pri prijavljivanju! Pokusajte ponovo!");
+    //            }
+    //        });
+    //    });
+
+    //});
+
+</script>
+
+
+
+
