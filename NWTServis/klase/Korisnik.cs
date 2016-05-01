@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+
+namespace ServisTextIT.Models
+{
+    [Table(name: "Korisnici")]
+    public class Korisnik
+    {
+
+        public int korisnikID { get; set; }
+        [DisplayName("Ime:")]
+        [Required(ErrorMessage = "Niste unijeli ime !")]
+        public string ime { get; set; }
+
+        [DisplayName("Prezime:")]
+        [Required(ErrorMessage = "Niste unijeli prezime !")]
+        public string prezime { get; set; }
+
+        [DisplayName("Korisničko ime:")]
+        [Required(ErrorMessage = "Niste unijeli korisničko ime !")]
+        public string korisnickoIme { get; set; }
+
+        [DisplayName("Sifra:")]
+        [Required(ErrorMessage = "Niste unijeli sifru !")]
+        [DataType(DataType.Password)]
+        [StringLength(255, MinimumLength = 8)]
+        [MembershipPassword()]
+        public string sifra { get; set; }
+
+        [DisplayName("Email:")]
+        [Required(ErrorMessage = "Niste unijeli email !")]
+        [DataType(DataType.EmailAddress)]
+        [StringLength(128)]
+        public string email { get; set; }
+
+        [DisplayName("Tip korisnika:")]
+        [Required(ErrorMessage = "Niste unijeli tip korisnika !")]
+        public string tipKorisnika { get; set; }
+        public List<Tekst> tekst { get; set; }
+        public List<Komentar> komentari { get; set; }
+        public List<Grupa> grupe { get; set; }
+
+
+    }
+}
