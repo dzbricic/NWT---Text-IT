@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TextITMVC.Models.Tekst>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naslov)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sadrzaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.like)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datumObjave)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.korisnikID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.naslov)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sadrzaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.like)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datumObjave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.korisnikID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.tekstID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.tekstID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.tekstID })
+        </td>
+    </tr>
+}
+
+</table>

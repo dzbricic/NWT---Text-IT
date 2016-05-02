@@ -1,0 +1,81 @@
+﻿@model TextITMVC.Models.Tekst
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Tekst</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.naslov, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.naslov)
+                @Html.ValidationMessageFor(model => model.naslov)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sadrzaj, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sadrzaj)
+                @Html.ValidationMessageFor(model => model.sadrzaj)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.link, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.link)
+                @Html.ValidationMessageFor(model => model.link)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.like, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.like)
+                @Html.ValidationMessageFor(model => model.like)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.datumObjave, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.datumObjave)
+                @Html.ValidationMessageFor(model => model.datumObjave)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.korisnikID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.korisnikID)
+                @Html.ValidationMessageFor(model => model.korisnikID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
