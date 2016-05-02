@@ -1,48 +1,63 @@
-﻿@model TextIT.Models.Korisnik
+﻿@model IEnumerable<TextITMVC.Korisnik>
 
 @{
-    ViewBag.Title = "Korisnici";
+    ViewBag.Title = "Index";
 }
 
-<h2>Pregled svih korisnika aktivnih u sistemu</h2>
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.korisnickoIme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sifra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipKorisnika)
+        </th>
+        <th></th>
+    </tr>
 
-<textarea id="nesto">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.korisnickoIme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sifra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipKorisnika)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.korisnikID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.korisnikID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.korisnikID })
+        </td>
+    </tr>
+}
 
-
-</textarea>
-<button onclick="Prikaz()">Prikazi</button>
-<br />
-<button id="NoviKorisnik">Dodaj novog korisnika</button>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script>
-    function Prikaz() {
-        var request = $.ajax({
-            url: "http://localhost:50073/api/Korisnik",
-            method: "GET",
-            dataType: "json"
-        });
-        request.success(function (response) {
-           
-                $("#nesto").val(response[0].ime, response[1].ime);
-               
-        });
-
-        request.fail(function (jqXHR, textStatus) {
-            alert("Request failed: " + textStatus);
-        });
-    }
-    $(function () {
-        $("#NoviKorisnik").click(function () {
-            var request = $.ajax({
-                url: "http://localhost:50073/KorisnikView/Dodaj",
-                method: "GET",
-                dataType: "html"
-            });
-            request.success(function (response) {
-
-                $("#content").html(response);
-            });
-        });
-    });
-</script>
+</table>

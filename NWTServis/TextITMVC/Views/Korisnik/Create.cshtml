@@ -1,5 +1,15 @@
-﻿@model TextIT.Models.Korisnik
+﻿@model TextITMVC.Korisnik
 
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <h4>Korisnik</h4>
@@ -56,55 +66,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button id="KreirajKorisnika"  class="btn btn-default" >Kreiraj korisnika</button>
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-
+}
 
 <div>
-    <button id="Nazad"  class="btn btn-default" >Nazad</button>
+    @Html.ActionLink("Back to List", "Index")
 </div>
-@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
-<script>
-    var id = @Session["ID"]
-        $("#Nazad").click(function () {
-            var request = $.ajax({
-                url: "http://localhost:50073/TekstView",
-                method: "GET",
-                data: { id: id },
-                dataType: "html"
-            });
-            request.success(function (response) {
-                $("#content").html(response);
-            });
-        });
 
-    $(function () {
-        $("#KreirajKorisnika").click(function () {
-            var model = {
-                ime: $("#ime").val(),
-                prezime: $("#prezime").val(),
-                korisnickoIme: $("#korisnickoIme").val(),
-                sifra: $("#sifra").val(),
-                email: $("#email").val(),
-                tipKorisnika: $("#tipKorisnika").val()
-
-            }
-            
-            var request = $.ajax({
-                url: "http://localhost:50073/api/Korisnik",
-                method: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(model),
-                success: function (msg) {
-                    alert("Uspjesno ste unijeli korisnika!");
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Desila se greska pri unosu korisnika! Pokusajte ponovo!");
-                }
-            });
-        });
-    });
-</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
