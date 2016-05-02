@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,15 +17,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("TextIT", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+                   
+                        <li>@Html.ActionLink("Pocetna", "Index", "Home", new { area = "" }, null)</li>
+                        <li><button id="Profil">Profil</button></li>
+                        <li><button id="Tekst">Moji tekstovi</button></li>
+                        <li><button id="Grupa">Grupe</button></li>
+                        <li><button id="KorisnikIndeks">Korisnici</button></li>
+                        @*@if (Session["LogedUserFullname"] != null)
+                        {
+                            if (Session["TipKorisnika"].ToString() == "admin")
+                            {
+                                <li><button id="Profil" >Profil</button></li>
+                                <li><button id="Tekst">Moji tekstovi</button></li>
+                                <li><button id="Grupa">Grupe</button></li>
+                                <li><button id="KorisnikIndeks">Korisnici</button></li>
+                            }
+                            else
+                            {
+                                <li><button id="Profil">Profil</button></li>
+                                <li><button id="Tekst">Moji tekstovi</button></li>
+                                <li><button id="Grupa">Grupe</button></li>
+
+                            }
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Logirajte se", "Login", "Home", new { area = "" }, null))</li>
+                        }*@
+                        
+
+</ul>
             </div>
         </div>
     </div>
@@ -33,12 +58,12 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Tim 23</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

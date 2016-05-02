@@ -1,0 +1,115 @@
+﻿@model TextIT.Models.Korisnik
+
+@using (Html.BeginForm())
+{
+ 
+    
+    <div class="form-horizontal">
+        <h4>Korisnik</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.korisnikID, new { @id = "korisnikID" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.ime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10" >
+                @Html.EditorFor(model => model.ime)
+                @Html.ValidationMessageFor(model => model.ime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.prezime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.prezime)
+                @Html.ValidationMessageFor(model => model.prezime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.korisnickoIme, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.korisnickoIme)
+                @Html.ValidationMessageFor(model => model.korisnickoIme)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sifra, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sifra)
+                @Html.ValidationMessageFor(model => model.sifra)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tipKorisnika, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tipKorisnika)
+                @Html.ValidationMessageFor(model => model.tipKorisnika)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id ="Spremi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button id="Nazad">Nazad</button>
+</div>
+<script>
+    var id = @Session["ID"]
+    $("#Nazad").click(function () {
+        var request = $.ajax({
+            url: "http://localhost:50073/KorisnikView/Profil",
+            method: "GET",
+            data: { id: id },
+            dataType: "html"
+        });
+        request.success(function (response) {
+
+            $("#content").html(response);
+        });
+    });
+    
+    $(function () {
+        $("#Spremi").click(function () {
+            var model = {
+                korisnikID: $("#korisnikID").val(),
+                ime: $("#ime").val(),
+                prezime: $("#prezime").val(),
+                email: $("#email").val(),
+                korisnickoIme: $("#korisnickoIme").val(),
+                sifra: $("#sifra").val(),
+                tipKorisnika: $("#tipKorisnika").val()
+
+            }
+            //alert(model.ime);
+            var request = $.ajax({
+                
+                url: "http://localhost:50073/api/Korisnik/" + $("#korisnikID").val(),
+                method: "PUT",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(model)
+             
+                
+                
+            });
+           
+        });
+
+    });
+
+</script>
