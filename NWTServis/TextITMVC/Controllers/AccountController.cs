@@ -9,36 +9,50 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using TextITMVC.Models;
+using TextITMVC.Controllers;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
 
 namespace TextITMVC.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
+        HttpClient client;
+        
+        //The URL of the WEB API Service
+        string url = "http://localhost:3106/api/account";
+
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            //: this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+            client = new HttpClient();
+            client.BaseAddress = new Uri(url);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
+                
 
         public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
         }
-
+        
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
         //
         // GET: /Account/Login
-        [AllowAnonymous]
+       /* [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
-        }
+        }*/
 
         //
         // POST: /Account/Login
-        [HttpPost]
+      /*  [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
@@ -59,14 +73,14 @@ namespace TextITMVC.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
+        }*/
 
-        //
-        // GET: /Account/Register
+      
+        
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult RegisterNew()
         {
-            return View();
+            return View(new Korisnik());
         }
 
         //
@@ -74,9 +88,9 @@ namespace TextITMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> RegisterNew(Korisnik model)
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -88,14 +102,24 @@ namespace TextITMVC.Controllers
                 else
                 {
                     AddErrors(result);
+                } }*/
+               
+                HttpResponseMessage responseMessage = await client.PostAsJsonAsync(url, model);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Home");
                 }
-            }
+               return RedirectToAction("Error");
+            
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            //return View(model);
         }
 
         //
+
+        
+
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
