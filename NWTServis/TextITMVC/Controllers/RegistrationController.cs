@@ -14,7 +14,7 @@ namespace TextITMVC.Controllers
     {
         
          HttpClient client;
-         string url = "http://localhost:3106/api/registration";
+         string url = "http://localhost:3106/api/korisnik";
 
         
         public RegistrationController()
@@ -48,9 +48,13 @@ namespace TextITMVC.Controllers
         public async Task<ActionResult> RegisterUser(Korisnik Emp)
         {
 
-            HttpResponseMessage responseMessage = await client.PostAsJsonAsync(url, Emp);
+            HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
+        
+           // responseMessage.EnsureSuccessStatusCode();
+            //responseMessage.Content.ReadAsAsync<HttpResponseMessage>().Wait();
             if (responseMessage.IsSuccessStatusCode)
             {
+                
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Error");
