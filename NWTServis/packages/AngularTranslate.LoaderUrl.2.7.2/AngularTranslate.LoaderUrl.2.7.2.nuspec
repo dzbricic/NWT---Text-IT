@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AngularTranslate.LoaderUrl</id>
+    <version>2.7.2</version>
+    <title>Angular Translate URL Loader</title>
+    <authors>Pascal Precht</authors>
+    <owners>Pascal Precht</owners>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://pascalprecht.github.io/angular-translate/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A plugin for Angular Translate</description>
+    <summary />
+    <dependencies>
+      <dependency id="AngularTranslate" version="2.6.1" />
+    </dependencies>
+  </metadata>
+</package>

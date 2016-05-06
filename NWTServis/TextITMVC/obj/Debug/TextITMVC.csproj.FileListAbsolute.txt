@@ -228,3 +228,9 @@ C:\Users\Sabina\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.We
 C:\Users\Sabina\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.WebHost.dll
 C:\Users\Sabina\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.xml
 C:\Users\Sabina\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.WebHost.xml
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\BotDetect.dll
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\BotDetect.Web.Mvc.dll
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.dll
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.WebHost.dll
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.xml
+C:\Users\Larisa\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\System.Web.Http.WebHost.xml
