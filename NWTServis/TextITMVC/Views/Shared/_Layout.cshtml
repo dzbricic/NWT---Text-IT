@@ -7,14 +7,17 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-   
+
     <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/Scripts/angular-translate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.11.0/angular-translate-loader-static-files.min.js"></script>
     <script src="~/Scripts/MultiLan.js"></script>
 
 </head>
 <body>
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -27,11 +30,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tekstovi", "Index", "Tekst")</li>
-                    <li>@Html.ActionLink("Korisnici", "Index", "Korisnik")</li>
+                   <!-- <li>@@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@@Html.ActionLink("Tekstovi", "Index", "Tekst")</li>
+                    <!--<li>@@Html.ActionLink("Korisnici", "Index", "Korisnik")</li>-->
+                    <li> <a href="/Home/Index"> {{ "HOME" | translate }} </a></li>
+                    <li> <a href="/Tekst/Index"> {{ "TEKSTOVI" | translate }} </a></li>
+                    <li> <a href="/Korisnik/Index"> {{ "KORISNICI" | translate }} </a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+               
+            </div>
+            
+            <div align="right" ng-controller="appctrl">
+                <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" ng-click="switchLanguage('bs')" />
+                <img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" />
             </div>
         </div>
     </div>
@@ -42,12 +54,10 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <div ng-controller="appctrl">
-        <a ng-click="switchLanguage('bs')">bosanski</a>
-        <a ng-click="switchLanguage('en')">engleski</a>
-    </div>
     
     
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
