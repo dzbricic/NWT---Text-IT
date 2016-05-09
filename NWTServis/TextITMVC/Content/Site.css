@@ -40,3 +40,10 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+
+div.g-recaptcha {
+  margin: 0 auto;
+  width: 304px;
+}
+
