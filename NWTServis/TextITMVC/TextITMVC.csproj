@@ -192,7 +192,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Grupa.cs" />
     <Compile Include="Models\HashTag.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Komentar.cs" />
@@ -299,17 +298,16 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Korisnici.cshtml" />
-    <Content Include="Views\Korisnik\Index.cshtml" />
-    <Content Include="Views\Korisnik\Create.cshtml" />
-    <Content Include="Views\Korisnik\Edit.cshtml" />
-    <Content Include="Views\Korisnik\Delete.cshtml" />
-    <Content Include="Views\Tekst\Index.cshtml" />
-    <Content Include="Views\Tekst\Create.cshtml" />
-    <Content Include="Views\Tekst\Edit.cshtml" />
-    <Content Include="Views\Tekst\Delete.cshtml" />
     <Content Include="Views\Account\RegisterNew.cshtml" />
     <Content Include="Views\Registration\RegisterUser.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Korisnik\Index.cshtml" />
+    <Content Include="Views\Korisnik\Create.cshtml" />
+    <Content Include="Views\Korisnik\Delete.cshtml" />
+    <Content Include="Views\Korisnik\Edit.cshtml" />
+    <Content Include="Views\Tekst\Index.cshtml" />
+    <Content Include="Views\Tekst\Create.cshtml" />
+    <Content Include="Views\Tekst\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

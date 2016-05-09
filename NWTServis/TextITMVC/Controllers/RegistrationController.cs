@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using reCAPTCHA;
 using reCAPTCHA.MVC;
-using System.Net; 
+using System.Net;
+using ServisTextIT.Models; 
 
 
 namespace TextITMVC.Controllers

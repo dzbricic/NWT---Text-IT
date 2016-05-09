@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 using System.Web.Security;
-using TextITMVC.Models;
 
-namespace TextITMVC
+namespace ServisTextIT.Models
 {
     [Authorize]
     [Table(name: "Korisnici")]
@@ -40,21 +39,19 @@ namespace TextITMVC
         [Required(ErrorMessage = "Niste unijeli email !")]
         [DataType(DataType.EmailAddress)]
         [StringLength(128)]
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Email nije validan")]
         public string email { get; set; }
 
         [DisplayName("Tip korisnika:")]
         [Required(ErrorMessage = "Niste unijeli tip korisnika !")]
-        //[DefaultValue("User")]
         public string tipKorisnika { get; set; }
+
+
+        [DisplayName("Potvrda:")]
+        public bool potvrda { get; set; }
         public List<Tekst> tekst { get; set; }
         public List<Komentar> komentari { get; set; }
-        public List<Grupa> grupe { get; set; }
+    
 
-        public Korisnik()
-        {
-            tipKorisnika = "User";
-        }
 
     }
 }

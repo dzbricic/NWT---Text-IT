@@ -12,6 +12,7 @@ using TextITMVC.Models;
 using TextITMVC.Controllers;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using ServisTextIT.Models;
 
 
 namespace TextITMVC.Controllers

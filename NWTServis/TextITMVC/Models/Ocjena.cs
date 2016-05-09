@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace TextITMVC.Models
+namespace ServisTextIT.Models
 {
     [Table(name: "Ocjena")]
     public class Ocjena

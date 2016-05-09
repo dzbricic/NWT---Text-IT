@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using ServisTextIT.Models;
 
-namespace NWTServis
+namespace NWTServis.Controllers
 {
     public class KorisnikController : ApiController
     {

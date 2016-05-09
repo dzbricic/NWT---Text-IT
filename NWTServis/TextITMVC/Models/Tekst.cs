@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace TextITMVC.Models
+namespace ServisTextIT.Models
 {
     [Table(name: "Tekstovi")]
     public class Tekst
@@ -19,7 +19,7 @@ namespace TextITMVC.Models
         [Required(ErrorMessage = "Niste unijeli sadržaj !")]
         public string sadrzaj { get; set; }
         public string link { get; set; }
-        public bool like { get; set; }
+        public int like { get; set; }
         public DateTime datumObjave { get; set; }
         public List<HashTag> HashTag { get; set; }
         public List<Komentar> komentari { get; set; }

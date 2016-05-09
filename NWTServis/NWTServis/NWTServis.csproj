@@ -183,19 +183,17 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="KorisnikController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GrupaController.cs" />
     <Compile Include="HashTagController.cs" />
     <Compile Include="KomentarController.cs" />
-    <Compile Include="KorisnikController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\TextITDbContext.cs" />
-    <Compile Include="Models\Grupa.cs" />
     <Compile Include="Models\HashTag.cs" />
     <Compile Include="Models\Komentar.cs" />
     <Compile Include="Models\Korisnik.cs" />

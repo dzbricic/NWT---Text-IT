@@ -44,9 +44,13 @@ namespace ServisTextIT.Models
         [DisplayName("Tip korisnika:")]
         [Required(ErrorMessage = "Niste unijeli tip korisnika !")]
         public string tipKorisnika { get; set; }
+
+
+        [DisplayName("Potvrda:")]
+        public bool potvrda { get; set; }
         public List<Tekst> tekst { get; set; }
         public List<Komentar> komentari { get; set; }
-        public List<Grupa> grupe { get; set; }
+    
 
 
     }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TextITMVC.Korisnik>
+﻿@model IEnumerable<ServisTextIT.Models.Korisnik>
 
 @{
     ViewBag.Title = "Index";
@@ -29,6 +29,9 @@
         <th>
             @Html.DisplayNameFor(model => model.tipKorisnika)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.potvrda)
+        </th>
         <th></th>
     </tr>
 
@@ -51,6 +54,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.tipKorisnika)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.potvrda)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.korisnikID }) |

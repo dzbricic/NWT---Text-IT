@@ -1,4 +1,4 @@
-﻿@model TextITMVC.Korisnik
+﻿@model ServisTextIT.Models.Korisnik
 
 @{
     ViewBag.Title = "Delete";
@@ -57,6 +57,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.tipKorisnika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.potvrda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.potvrda)
         </dd>
 
     </dl>

@@ -5,15 +5,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TextITMVC.Models
+namespace ServisTextIT.Models
 {
-    public class HashTag
-    {
-        public int hashTagID { get; set; }
-        [DisplayName("HashTag#:")]
-        [Required(ErrorMessage = "Niste unijeli unijeti HashTag !")]
-        public string naziv { get; set; }
+   
+        public class HashTag
+        {
+            public int hashTagID { get; set; }
+            [DisplayName("HashTag#:")]
+            [Required(ErrorMessage = "Niste unijeli unijeti HashTag !")]
+            public string naziv { get; set; }
 
-    }
+        }
     
 }
