@@ -50,6 +50,12 @@ namespace ServisTextIT.Models
         public bool potvrda { get; set; }
         public List<Tekst> tekst { get; set; }
         public List<Komentar> komentari { get; set; }
+
+        public Korisnik()
+        {
+            tipKorisnika = "User";
+            potvrda = false;
+        }
     
 
 
