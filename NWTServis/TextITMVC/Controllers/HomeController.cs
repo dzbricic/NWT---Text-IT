@@ -16,6 +16,7 @@ namespace TextITMVC.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
         // GET:/Home/

@@ -16,70 +16,69 @@
     <script src="~/Scripts/MultiLan.js"></script>
     <script src="~/Scripts/Login.js"></script>
     <script src="~/Scripts/Korisnici.js"></script>
+    <script src="~/Scripts/Logout.js"></script>
 </head>
 
 
 <body>
-    
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("TextIT", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                   <!-- <li>@@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@@Html.ActionLink("Tekstovi", "Index", "Tekst")</li>
-                    <!--<li>@@Html.ActionLink("Korisnici", "Index", "Korisnik")</li>-->
-                    
-                     @if (Session["username"] != null)
-                     {
-                          
-                          <li> <a href="/Tekst/Index"> {{ "TEKSTOVI" | translate }} </a></li>
-                          <li> <a href="/Korisnik/Index"> {{ "KORISNICI" | translate }} </a></li>
-                          
-                     }
-                     else
-                     { 
-                          <li> <a href="/Home/Index"> {{ "HOME" | translate }} </a></li>
-                     }
-                   
-                </ul>
-                @Html.Partial("_LoginPartial")
-               
-            </div>
-            
-            <div align="right" ng-controller="appctrl">
-                <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" margin-bottom:10px ng-click="switchLanguage('bs')" />
-                <img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" />
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("TextIT", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li> <a id="home" href="/Home/Index"> {{ "HOME" | translate }} </a></li>
+                        <li> <a id="tekstovi" href="/Tekst/Index"> {{ "TEKSTOVI" | translate }} </a></li>
+                        <li> <a id="korisnici" href="/Korisnik/Index"> {{ "KORISNICI" | translate }} </a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+
+                <div align="right" ng-controller="appctrl">
+                    <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" margin-bottom:10px ng-click="switchLanguage('bs')" />
+                    <img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-    
-   
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 
 
 </html>
 <script>
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('tekstovi').style.visibility = 'visible';
+        document.getElementById('korisnici').style.visibility = 'visible';
+        document.getElementById('home').style.visibility = 'visible';
+    }
+    else if (tipKorisnika == "User") {
+        document.getElementById('tekstovi').style.visibility = 'visible';
+        document.getElementById('korisnici').style.visibility = 'hidden';
+        document.getElementById('home').style.visibility = 'visible';
+    }
+    else {
+        document.getElementById('tekstovi').style.visibility = 'hidden';
+        document.getElementById('korisnici').style.visibility = 'hidden';
+        document.getElementById('home').style.visibility = 'visible';
 
-    var korisnickoIme = sessionStorage.getItem("korisniskoIme");
-
+    }
 </script>

@@ -5,18 +5,7 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
         Username: '',
         Password: ''
     };
-    //$http.defaults.headers.put = {
-    //    'Access-Control-Allow-Origin': '*',
-    //    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    //    'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
-    //};
-    //$http.defaults.useXDomain = true;
-
-    //$scope.throughdata = function () {
-
-    //    delete $http.defaults.headers.common['X-Requested-With'];
         $scope.Login = function () {
-
             $http.post("http://localhost:3106/api/Login", $scope.LoginPodaci).success(function (response) {
                
                 var arr = $.map(response, function (el) { return el });
@@ -32,7 +21,9 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 alert("Login neuspjesan!");
             });
         }
-        
-    
+         
     //}
 }]);
+
+
+

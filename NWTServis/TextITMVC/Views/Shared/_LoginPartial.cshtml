@@ -15,8 +15,32 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "RegisterUser", "Registration", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <div ng-controller="Logout">
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "RegisterUser", "Registration", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li><a id="logout" ng-click="logout()">LogOut</a></li>
+        </ul>
+    </div>
+    
 }
+
+<script>
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('registerLink').style.visibility = 'hidden';
+        document.getElementById('loginLink').style.visibility = 'hidden';
+        document.getElementById('logout').style.visibility = 'visible';
+    }
+    else if (tipKorisnika == "User") {
+        document.getElementById('registerLink').style.visibility = 'hidden';
+        document.getElementById('loginLink').style.visibility = 'hidden';
+        document.getElementById('logout').style.visibility = 'visible';
+    }
+    else {
+        document.getElementById('registerLink').style.visibility = 'visible';
+        document.getElementById('loginLink').style.visibility = 'visible';
+        document.getElementById('logout').style.visibility = 'hidden';
+
+    }
+</script>
