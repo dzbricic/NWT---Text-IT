@@ -273,6 +273,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Korisnici.js" />
     <Content Include="Scripts\Logout.js" />
+    <Content Include="Scripts\singlePage.js" />
     <Content Include="Scripts\Tekstovi.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

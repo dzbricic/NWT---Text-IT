@@ -1,4 +1,4 @@
-﻿var app = angular.module('app', ['pascalprecht.translate']);
+﻿var app = angular.module('app', ['pascalprecht.translate','ngRoute']);
 app.controller("appctrl", ["$scope", "$translate", function ($scope, $translate) {
     $scope.selectedLanguage = $translate.preferredLanguage;
     $scope.switchLanguage = function (lang) {
