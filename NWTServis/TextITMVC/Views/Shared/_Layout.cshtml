@@ -49,11 +49,12 @@
                         </ul>
                         @Html.Partial("_LoginPartial")
                     </div>
+                    <div style="align-content:initial" align="right" ng-controller="appctrl">
+                        <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" margin-bottom:10px ng-click="switchLanguage('bs')" />
+                        <img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" />
+                    </div>
                 </div>
-                <div align="right" ng-controller="appctrl">
-                    <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" margin-bottom:10px ng-click="switchLanguage('bs')" />
-                    <img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" />
-                </div>
+                
 
               
             </div>

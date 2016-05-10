@@ -4,7 +4,8 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<h2>Login.</h2>
+<h4>Logirajte se sa postojecim racunom.</h4>
 <hr />
 
 <div ng-controller="Login">
@@ -17,7 +18,7 @@
     <input type="password" name="password" id="password" class="form-control" ng-model="LoginPodaci.Password" required />
     <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Šifra je obavezna!</span>
 
-
+    <br/>
     <button ng-disabled=" form.$invalid || vm.dataloading" class="btn btn-primary" ng-click="Login()">Login</button>
    
 </div>
