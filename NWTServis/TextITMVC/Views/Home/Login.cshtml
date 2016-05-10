@@ -1,0 +1,35 @@
+﻿@model ServisTextIT.Models.Korisnik
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<hr />
+
+<div ng-controller="Login">
+
+    <label for="username">Korisnicko ime</label>
+    <input type="text" name="username" id="username" class="form-control" ng-model="LoginPodaci.Username" required />
+    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Korisnicko ime je obavezno!</span>
+
+    <label for="password">Sifra</label>
+    <input type="password" name="password" id="password" class="form-control" ng-model="LoginPodaci.Password" required />
+    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Šifra je obavezna!</span>
+
+
+    <button ng-disabled=" form.$invalid || vm.dataloading" class="btn btn-primary" ng-click="Login()">Login</button>
+    @*<ul>
+        <li ng-repeat="x in myData">
+            {{ x.Username + ', ' + x.Password }}
+        </li>
+    </ul>*@
+</div>
+
+
+@Html.ActionLink("Registrujte se", "RegisterUser", "Registration") ukoliko nemate racun.
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

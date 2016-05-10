@@ -34,6 +34,10 @@ namespace TextITMVC.Controllers
             }
             return View(l);
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
 
     }
 }

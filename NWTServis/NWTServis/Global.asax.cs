@@ -24,6 +24,7 @@ namespace NWTServis
             config.Formatters.JsonFormatter
                         .SerializerSettings
                         .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        
         }
 
 
