@@ -18,19 +18,21 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
         $scope.Login = function () {
 
             $http.post("http://localhost:3106/api/Login", $scope.LoginPodaci).success(function (response) {
-                alert("valja");
                
-                //$scope.myData = response.data;
-                sessionStorage.setItem("username", response.Username);
-                sessionStorage.setItem("password", response.Password);
-                //$cookie.put('username', data.Username);
-                //$cookie.put('password', data.Password);
-                 window.location = "http://localhost:36729/Home/Index";
+                var arr = $.map(response, function (el) { return el });
+                sessionStorage.setItem("ID", arr[0]);
+                sessionStorage.setItem("ime", arr[1]);
+                sessionStorage.setItem("prezime", arr[2]);
+                sessionStorage.setItem("korisnickoIme", arr[3]);
+                sessionStorage.setItem("sifra", arr[4]);
+                sessionStorage.setItem("tipKorisnika", arr[6]);
+                alert("Uspjesno ste se logovali!");
+                window.location = "http://localhost:36729/Home/Index";
             }).error(function (data) {
-                alert("ne valja");
+                alert("Login neuspjesan!");
             });
         }
-
+        
     
     //}
 }]);
