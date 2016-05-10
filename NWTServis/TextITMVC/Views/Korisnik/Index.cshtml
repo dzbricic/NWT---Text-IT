@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!--<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -66,16 +66,28 @@
     </tr>
 }
 
-</table>
+</table>-->
 
 <h2>Korisnici</h2>
 <div ng-controller='Korisnik'>
-    <button type="button" ng-click="getKorisnik()">DAJ!</button>
-    <ul class="table">
-        <li ng-repeat="korisnik in korisnici">{{korisnik.ime}}</li>
-        <li ng-repeat="korisnik in korisnici">{{korisnik.prezime}}</li>
-        <li ng-repeat="korisnik in korisnici">{{korisnik.korisnickoIme}}</li>
-        <li ng-repeat="korisnik in korisnici">{{korisnik.email}}</li>
-        <li ng-repeat="korisnik in korisnici">{{korisnik.tipKorisnika}}</li>
-    </ul>
+    <button type="button" ng-click="getKorisnik()" class="btn btn-primary btn-large">Lista korisnika</button>
+    <table class="table">
+        <tr ng-repeat="korisnik in korisnici">
+            <td>
+                {{korisnik.ime}}
+            </td>
+            <td>
+                {{korisnik.prezime}}
+            </td>
+            <td>
+                {{korisnik.korisnickoIme}}
+            </td>
+            <td>
+                {{korisnik.email}}
+            </td>
+            <td>
+                {{korisnik.tipKorisnika}}
+            </td>
+        </tr>
+    </table>
 </div>
