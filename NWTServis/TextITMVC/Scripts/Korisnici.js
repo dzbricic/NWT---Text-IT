@@ -12,9 +12,16 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
         });
     }
 
-    $scope.deleteKorisnik = function (k) {
+    //$scope.deleteKorisnik = function (k) {
+    //    $http.delete("http://localhost:3106/api/Korisnik", { id: k.korisnikID }).success(function (data, status) {
+    //        alert("Banovan korisnik!");
+    //    }).error(function (data, status) {
+    //        alert("Neuspjesno!");
+    //    });
+    //}
 
-        $http.delete("http://localhost:3106/api/Korisnik", { id: k.korisnikID }).success(function (data, status) {
+    $scope.deleteKorisnik = function (k) {
+        $http.delete("http://localhost:3106/api/Korisnik/" + k.korisnikID).success(function (data, status) {
             alert("Banovan korisnik!");
         }).error(function (data, status) {
             alert("Neuspjesno!");

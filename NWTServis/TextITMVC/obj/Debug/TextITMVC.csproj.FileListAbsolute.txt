@@ -363,3 +363,4 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\TextITMVC\bin\Microsoft.Owin.Se
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\TextITMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.pdb
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.csprojResolveAssemblyReference.cache
