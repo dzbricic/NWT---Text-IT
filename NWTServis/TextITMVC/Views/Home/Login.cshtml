@@ -4,8 +4,8 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login.</h2>
-<h4>Logirajte se sa postojecim racunom.</h4>
+<h2>{{ "PRIJAVA" | translate }}</h2>
+<h4>{{ "LOGIN" | translate }}</h4>
 <hr />
 
 <div ng-controller="Login">
@@ -23,9 +23,8 @@
    
 </div>
 
+<a id="reg" href="/Registration/RegisterUser"> {{ "REGSE" | translate }} </a>
 
-
-@Html.ActionLink("Registrujte se", "RegisterUser", "Registration") ukoliko nemate racun.
 
 
 @section Scripts {

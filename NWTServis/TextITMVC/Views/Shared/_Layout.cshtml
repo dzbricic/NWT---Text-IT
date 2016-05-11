@@ -35,7 +35,7 @@
                 <div class="navbar-collapse collapse">
                     <div ng-controller="singlePage">
                         <ul class="nav navbar-nav">
-                            <li> <a id="home" href="/"> {{ "HOME" | translate }} </a></li>
+                            <li> <a id="home" href="/"> {{ "POCETNA" | translate }} </a></li>
                             <li> <a id="tekstovi" href="/tekst"> {{ "TEKSTOVI" | translate }} </a></li>
                             <li> <a id="korisnici" href="/korisnik"> {{ "KORISNICI" | translate }} </a></li>
 
@@ -48,6 +48,7 @@
                             <li> <button id="korisnici" > {{ "KORISNICI" | translate }} </button></li>*@
                         </ul>
                         @Html.Partial("_LoginPartial")
+
                     </div>
                     <div style="align-content:initial" align="right" ng-controller="appctrl">
                         <img src="/Images/bosnian_flag.png" style="width:30px;height:18px" margin-bottom:10px ng-click="switchLanguage('bs')" />

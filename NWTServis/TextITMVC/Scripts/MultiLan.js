@@ -9,12 +9,28 @@ app.config(["$translateProvider", function ($translateProvider) {
     $translateProvider.translations('en', {
         KORISNICI: 'Users',
         TEKSTOVI: 'Texts',
-        VISE: "More"
+        VISE: "More",
+        POCETNA: "Home",
+        NOVIRACUN: "Create a new account.",
+        REGISTRACIJA: "Registration",
+        REGISTRUJSE: "Register",
+        PRIJAVA: "Log in",
+        LOGIN: "Log in with your account.",
+        REGSE: "Register if you don't have account.",
+        ODJAVA: "Log out"
     })
     $translateProvider.translations('bs', {
         KORISNICI: 'Korisnici',
         TEKSTOVI: 'Tekstovi',
-        VISE: "Više"
+        VISE: "Više",
+        POCETNA: "Početna",
+        NOVIRACUN: "Kreiraj novi račun.",
+        REGISTRACIJA: "Registracija",
+        REGISTRUJSE: "Registruj se",
+        PRIJAVA: "Prijava",
+        LOGIN: "Logirajte se sa postojećim računom.",
+        REGSE: "Registrujte se ukoliko nemate račun.",
+        ODJAVA: "Odjava"
     });
     $translateProvider.preferredLanguage('bs');
 }])
