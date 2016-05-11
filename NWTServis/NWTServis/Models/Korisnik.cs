@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -48,6 +49,8 @@ namespace ServisTextIT.Models
 
         [DisplayName("Potvrda:")]
         public bool potvrda { get; set; }
+
+        [JsonIgnore]
         public List<Tekst> tekst { get; set; }
         public List<Komentar> komentari { get; set; }
     

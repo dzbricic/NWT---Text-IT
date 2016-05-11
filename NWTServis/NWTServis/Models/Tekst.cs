@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -25,6 +26,7 @@ namespace ServisTextIT.Models
         public List<Komentar> komentari { get; set; }
         public List<Ocjena> ocjene { get; set; }
         public int korisnikID { get; set; }
+        [JsonIgnore]
         public virtual Korisnik korisnik { get; set; }
 
 

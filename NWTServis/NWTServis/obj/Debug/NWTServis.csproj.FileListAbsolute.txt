@@ -148,6 +148,7 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Owin.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Net.Http.Formatting.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Cors.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Helpers.dll
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Cors.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Owin.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.WebHost.dll
@@ -158,10 +159,13 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPag
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPages.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPages.Razor.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\WebGrease.dll
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\EntityFramework.xml
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\EntityFramework.SqlServer.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Newtonsoft.Json.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Net.Http.Formatting.xml
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Helpers.xml
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.xml
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Cors.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.WebHost.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Mvc.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Optimization.xml
@@ -170,8 +174,6 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPag
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.WebPages.Razor.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Antlr3.Runtime.pdb
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\EntityFramework.xml
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\EntityFramework.SqlServer.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.AspNet.Identity.EntityFramework.xml
@@ -187,6 +189,4 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Se
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Owin.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.pdb
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Cors.dll
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Cors.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache
