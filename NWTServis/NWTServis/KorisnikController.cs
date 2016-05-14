@@ -38,14 +38,10 @@ namespace NWTServis.Controllers
         // PUT api/Korisnik/5
         public IHttpActionResult PutKorisnik(int id, Korisnik korisnik)
         {
+            korisnik.korisnikID = id;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (id != korisnik.korisnikID)
-            {
-                return BadRequest();
             }
 
             db.Entry(korisnik).State = EntityState.Modified;

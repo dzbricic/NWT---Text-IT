@@ -5,8 +5,57 @@
 }
 
 <h2>Create</h2>
+<div ng-controller="KorisnikAdd">
+    <button type="button" ng-click="addKorisnik('@Model.korisnikID')" class="btn btn-primary btn-large" ng-model="dodaj">Dodaj korisnika</button>
+    <br />
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">ID</label></td>
+            <td><input ng-model="korisnik.id" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label>Ime</label></td>
+            <td><input placeholder="ime" ng-model="korisnik.ime" /></td>
+        </tr>
+        <tr>
+            <td><label>Prezime</label></td>
+            <td><input ng-model="korisnik.prezime" /></td>
+        </tr>
+        <tr>
+            <td><label>Korisničko ime</label></td>
+            <td><input ng-model="korisnik.korisnickoIme" /></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input ng-model="korisnik.email" /></td>
+        </tr>
+        <tr>
+            <td><label>Tip korisnika</label></td>
+            <td><input ng-model="korisnik.tipKorisnika" /></td>
+        </tr>
+        <tr>
+            <td><label>Potvrda</label></td>
+            <td><input ng-model="korisnik.potvrda" type="checkbox" /></td>
+        </tr>
+        <tr>
+            <td><label>Sifra</label></td>
+            <td><input ng-model="korisnik.sifra"/></td>
+        </tr>
 
-@using (Html.BeginForm()) 
+
+    </table>
+   
+
+
+
+</div>
+
+
+@*@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -81,4 +130,4 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

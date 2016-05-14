@@ -3,7 +3,6 @@
 app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
     $scope.korisnici = []
     $scope.getKorisnik = function () {
-
         $http.get("http://localhost:3106/api/Korisnik", $scope.korisnici).success(function (data, status) {
             $scope.korisnici = data;
 
@@ -12,13 +11,7 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
         });
     }
 
-    //$scope.deleteKorisnik = function (k) {
-    //    $http.delete("http://localhost:3106/api/Korisnik", { id: k.korisnikID }).success(function (data, status) {
-    //        alert("Banovan korisnik!");
-    //    }).error(function (data, status) {
-    //        alert("Neuspjesno!");
-    //    });
-    //}
+
 
     $scope.deleteKorisnik = function (k) {
         $http.delete("http://localhost:3106/api/Korisnik/" + k.korisnikID).success(function (data, status) {
@@ -26,6 +19,12 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
         }).error(function (data, status) {
             alert("Neuspjesno!");
         });
+    }
+    $scope.editKorisnik = function (k)
+    {
+        window.location = "http://localhost:36729/Korisnik/Edit/" + k.korisnikID, k;
+        $scope.ime = k.ime;
+       // $location.path('/employee-details/' + employee.EmployeeNumber);
     }
 
 }]);

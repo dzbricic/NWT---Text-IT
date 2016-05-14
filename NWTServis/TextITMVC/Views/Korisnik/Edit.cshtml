@@ -13,7 +13,51 @@
     <div class="form-horizontal">
         <h4>Korisnik</h4>
         <hr />
-        @Html.ValidationSummary(true)
+    
+        <div ng-controller="KorisnikEdit" data-ng-init="editKorisnik('@Model.korisnikID')">
+            <table>
+                <tr>
+                    <td><label style="visibility:hidden">ID</label></td>
+                    <td><input ng-model="korisnik.id" style="visibility:hidden" /></td>
+                </tr>
+                <tr>
+                    <td><label>Ime</label></td>
+                    <td><input placeholder="ime" ng-model="korisnik.ime" /></td>
+                </tr>
+                <tr>
+                    <td><label>Prezime</label></td>
+                    <td><input ng-model="korisnik.prezime"/></td>
+                </tr>
+                <tr>
+                    <td><label>Korisničko ime</label></td>
+                    <td><input ng-model="korisnik.korisnickoIme" /></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input ng-model="korisnik.email" /></td>
+                </tr>
+                <tr>
+                    <td><label>Tip korisnika</label></td>
+                    <td><input ng-model="korisnik.tipKorisnika" /></td>
+                </tr>
+                <tr>
+                    <td><label>Potvrda</label></td>
+                    <td><input ng-model="korisnik.potvrda" type="checkbox" /></td>
+                </tr>
+                <tr>
+                    <td><label style="visibility:hidden">Sifra</label></td>
+                    <td><input ng-model="korisnik.sifra" style="visibility:hidden"/></td>
+                </tr>
+                
+                    
+            </table>
+            <button type="button" ng-click="updateKorisnik('@Model.korisnikID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni korisnika</button>
+
+            
+
+
+        </div>
+     @*@Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.korisnikID)
 
         <div class="form-group">
@@ -76,8 +120,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
-        </div>
-    </div>
+        </div>*@</div>
 }
 
 <div>
