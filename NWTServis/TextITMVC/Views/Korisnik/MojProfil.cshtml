@@ -12,12 +12,13 @@
             <td><label style="visibility:hidden">ID</label></td>
             <td><input ng-model="korisnik.id" style="visibility:hidden" /></td>
         </tr>
+        
         <tr>
             <td><label>Ime</label></td>
             <td><input placeholder="ime" ng-model="korisnik.ime" /></td>
         </tr>
         <tr>
-            <td><label>Prezime</label></td>
+            <td ><label>Prezime</label></td>
             <td><input ng-model="korisnik.prezime" /></td>
         </tr>
         <tr>
@@ -33,14 +34,13 @@
             <td><input ng-model="korisnik.tipKorisnika" /></td>
         </tr>
         <tr>
-            <td><label>Potvrda</label></td>
-            <td><input ng-model="korisnik.potvrda" type="checkbox" /></td>
-        </tr>
-        <tr>
             <td><label>Sifra</label></td>
             <td><input ng-model="korisnik.sifra"/></td>
         </tr>
-
+        <tr>
+            <td><label style="visibility:hidden">Potvrda</label></td>
+            <td><input ng-model="korisnik.potvrda" style="visibility:hidden" type="checkbox" /></td>
+        </tr>
 
     </table>
     <button type="button" ng-click="updateKorisnik(korisnik.id)" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni svoje podatke</button>
