@@ -20,6 +20,8 @@
     <script src="~/Scripts/singlePage.js"></script>
     <script src="~/Scripts/korisnikEdit.js"></script>
     <script src="~/Scripts/KorisnikAdd.js"></script>
+    <script src="~/Scripts/MojProfil.js"></script>
+
 </head>
 
 
@@ -39,15 +41,9 @@
                         <ul class="nav navbar-nav">
                             <li> <a id="home" href="/"> {{ "POCETNA" | translate }} </a></li>
                             <li> <a id="tekstovi" href="/tekst"> {{ "TEKSTOVI" | translate }} </a></li>
+                            <li> <a id="profil" href="/korisnik/mojprofil"> Moj profil </a></li>
                             <li> <a id="korisnici" href="/korisnik"> {{ "KORISNICI" | translate }} </a></li>
-
-                            @*<li> <a id="home" href="/Home/Index"> {{ "HOME" | translate }} </a></li>
-                            <li> <a id="tekstovi" href="/Tekst/Index"> {{ "TEKSTOVI" | translate }} </a></li>
-                            <li> <a id="korisnici" href="/Korisnik/Index"> {{ "KORISNICI" | translate }} </a></li>*@
-
-                            @*<li> <button id="home" > {{ "HOME" | translate }} </button></li>
-                            <li> <button id="tekstovi" > {{ "TEKSTOVI" | translate }} </button></li>
-                            <li> <button id="korisnici" > {{ "KORISNICI" | translate }} </button></li>*@
+                            
                         </ul>
                         @Html.Partial("_LoginPartial")
 
@@ -81,16 +77,19 @@
         document.getElementById('tekstovi').style.visibility = 'visible';
         document.getElementById('korisnici').style.visibility = 'visible';
         document.getElementById('home').style.visibility = 'visible';
+        document.getElementById('profil').style.visibility = 'visible';
     }
     else if (tipKorisnika == "User") {
         document.getElementById('tekstovi').style.visibility = 'visible';
         document.getElementById('korisnici').style.visibility = 'hidden';
         document.getElementById('home').style.visibility = 'visible';
+        document.getElementById('profil').style.visibility = 'visible';
     }
     else {
         document.getElementById('tekstovi').style.visibility = 'hidden';
         document.getElementById('korisnici').style.visibility = 'hidden';
         document.getElementById('home').style.visibility = 'visible';
+        document.getElementById('profil').style.visibility = 'hidden';
 
     }
 </script>

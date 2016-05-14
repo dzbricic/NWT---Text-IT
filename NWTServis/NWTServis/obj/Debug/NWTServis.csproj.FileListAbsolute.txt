@@ -187,6 +187,6 @@ C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Se
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Owin.xml
+C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.dll
 C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.pdb
-C:\Users\Dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache

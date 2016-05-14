@@ -45,6 +45,7 @@ namespace TextITMVC.Controllers
             }
             return View("Error");
         }
+       
 
         public ActionResult Create()
         {
@@ -118,6 +119,10 @@ namespace TextITMVC.Controllers
             return RedirectToAction("Error");
         }
 
+        public ActionResult MojProfil()
+        {
+            return View();
+        }
 
 
 

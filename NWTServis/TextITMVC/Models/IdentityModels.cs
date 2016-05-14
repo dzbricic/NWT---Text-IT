@@ -13,5 +13,7 @@ namespace TextITMVC.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<ServisTextIT.Models.Korisnik> Korisniks { get; set; }
     }
 }

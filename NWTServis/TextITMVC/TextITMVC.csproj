@@ -275,6 +275,7 @@
     <Content Include="Scripts\KorisnikAdd.js" />
     <Content Include="Scripts\KorisnikEdit.js" />
     <Content Include="Scripts\Logout.js" />
+    <Content Include="Scripts\MojProfil.js" />
     <Content Include="Scripts\singlePage.js" />
     <Content Include="Scripts\Tekstovi.js" />
     <Content Include="Scripts\Login.js" />
@@ -322,6 +323,7 @@
     <Content Include="Views\Tekst\Edit.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Tekstovi.cshtml" />
+    <Content Include="Views\Korisnik\MojProfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

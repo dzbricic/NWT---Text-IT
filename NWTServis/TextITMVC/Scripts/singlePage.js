@@ -10,6 +10,10 @@ app.config(['$routeProvider',
                 templateUrl: '/Korisnik/Index.cshtml',
                 controller: 'KorisnikController'
             }).
+            when('korisnik/mojprofil', {
+                 templateUrl: '/Korisnik/MojProfil.cshtml',
+                 controller: 'KorisnikController'
+             }).
             otherwise({
                 redirectTo: '/'
             })
