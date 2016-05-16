@@ -10,7 +10,10 @@ using Newtonsoft.Json;
 using reCAPTCHA;
 using reCAPTCHA.MVC;
 using System.Net;
+using ServisTextIT.Models;
+using System.Net.Mail;
 using ServisTextIT.Models; 
+
 
 
 namespace TextITMVC.Controllers
@@ -20,7 +23,7 @@ namespace TextITMVC.Controllers
 
          HttpClient client;
          string url = "http://localhost:3106/api/korisnik";
-
+         
         
         public RegistrationController()
         {
@@ -48,6 +51,55 @@ namespace TextITMVC.Controllers
         {
             return View(new Korisnik());
         }
+
+        //funkcija za slanje maila
+        private void SendRegistrationMail(string mailTo, int userId)
+        {
+            string link = "http://localhost:3106/api/korisnik/confirmregistration/" + userId.ToString(); //postaviti ispravan link
+            string id = userId.ToString(); 
+             MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("sgrosic1@gmail.com");
+            msg.To.Add(new MailAddress(mailTo));
+            msg.Body = "Dobrodošli na našu stranicu! Kliknite <a href="+ link +"> ovdje </a> da potvrdite Vašu registraciju!";                    
+            msg.Subject = "Potvrda registracije";
+            msg.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", Convert.ToInt32(587));
+            smtpClient.Credentials = new System.Net.NetworkCredential("sgrosic1", "88aida19");
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(msg);
+        }
+
+        //funkcija za potvrdu mail-a
+        public async Task<ActionResult> confirmregistration(int userId)
+        {
+            
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/" + userId);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+
+                var korisnik = JsonConvert.DeserializeObject<Korisnik>(responseData);
+                if (korisnik != null)
+                {
+                    korisnik.potvrda = true;
+                   // db.SaveChanges();
+                    return View("~/Views/Registration/Uspjesno.cshtml");
+                   
+                }
+                else return View("~/Views/Registration/FailRegistration.cshtml");
+              
+            }
+            return View("Error");
+                 /*var korisnik db.Korisnik.Find(userId);
+            if(korisnik != null) {
+                korisnik.Potvrđen = true;
+	            db.SaveChanges();
+                return View(); 
+            }else return View(); //neki view sa porukom da korisnik ne postoji*/
+}
+
 
         
 
@@ -113,12 +165,16 @@ namespace TextITMVC.Controllers
                     HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
                     if (responseMessage.IsSuccessStatusCode)
                     {
-                        TempData["alertMessage"] = "USPJESNO";
+                       // TempData["alertMessage"] = "USPJESNO";
+                        //ako su validni svi podaci o korisniku, potrebno je pozvati metodu za slanje maila
+                        string mail = Emp.email.ToString();
+                        int id = Emp.korisnikID;
+                        SendRegistrationMail(mail, id);
                     }
                     else
                         return RedirectToAction("Error");
 
-                    return RedirectToAction("Index", "Home");
+                    return View("~/Views/Registration/Link.cshtml");
                 }
 
                 //kraj

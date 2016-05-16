@@ -325,6 +325,9 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Tekstovi.cshtml" />
     <Content Include="Views\Korisnik\MojProfil.cshtml" />
+    <Content Include="Views\Registration\FailRegistration.cshtml" />
+    <Content Include="Views\Registration\Link.cshtml" />
+    <Content Include="Views\Registration\Uspjesno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
