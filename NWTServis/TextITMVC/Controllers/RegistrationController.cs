@@ -85,8 +85,12 @@ namespace TextITMVC.Controllers
                 if (korisnik != null)
                 {
                     korisnik.potvrda = true;
+                    HttpResponseMessage responseMessage1 = await client.PutAsJsonAsync(url + "/" + userId, korisnik);
+                    if (responseMessage1.IsSuccessStatusCode)
+                    {
+                        return View("~/Views/Registration/Uspjesno.cshtml");
+                    }
                    
-                    return View("~/Views/Registration/Uspjesno.cshtml");
                    
                 }
                 else return View("~/Views/Registration/FailRegistration.cshtml");
