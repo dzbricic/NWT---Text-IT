@@ -18,8 +18,16 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 sessionStorage.setItem("tipKorisnika", arr[6]);
                 sessionStorage.setItem("potvrda", arr[7]);
                 
-                alert("Uspjesno ste se logovali!");
-                window.location = "http://localhost:36729/Home/Index";
+                if (arr[7] == true)
+                {
+                    alert("Uspjesno ste se logovali!");
+                    window.location = "http://localhost:36729/Home/Index";
+                }
+                else
+                {
+                    alert("Da biste se logirali morate potvrditi Vasu registraciju!");
+                }
+               
             }).error(function (data) {
                 alert("Login neuspjesan!");
             });

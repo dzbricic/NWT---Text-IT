@@ -23,7 +23,7 @@ namespace TextITMVC.Controllers
 
          HttpClient client;
          string url = "http://localhost:3106/api/korisnik";
-         
+
         
         public RegistrationController()
         {
@@ -53,14 +53,15 @@ namespace TextITMVC.Controllers
         }
 
         //funkcija za slanje maila
-        private void SendRegistrationMail(string mailTo, int userId)
+        private void SendRegistrationMail(string mailTo)
         {
-            string link = "http://localhost:3106/api/korisnik/confirmregistration/" + userId.ToString(); //postaviti ispravan link
-            string id = userId.ToString(); 
-             MailMessage msg = new MailMessage();
+            string link = "http://localhost:36729/Registration/confirmregistration"; 
+
+            MailMessage msg = new MailMessage();
+             
             msg.From = new MailAddress("sgrosic1@gmail.com");
-            msg.To.Add(new MailAddress(mailTo));
-            msg.Body = "Dobrodošli na našu stranicu! Kliknite <a href="+ link +"> ovdje </a> da potvrdite Vašu registraciju!";                    
+            msg.To.Add(new MailAddress(mailTo)); 
+            msg.Body = "Dobrodošli na našu stranicu! Kliknite<a href="+ link +">ovdje</a> da potvrdite Vašu registraciju!";        
             msg.Subject = "Potvrda registracije";
             msg.IsBodyHtml = true;
 
@@ -71,9 +72,9 @@ namespace TextITMVC.Controllers
         }
 
         //funkcija za potvrdu mail-a
-        public async Task<ActionResult> confirmregistration(int userId)
+        public async Task<ActionResult> confirmregistration()
         {
-            
+            int userId = Convert.ToInt32(Session["id"].ToString());
             HttpResponseMessage responseMessage = await client.GetAsync(url + "/" + userId);
 
             if (responseMessage.IsSuccessStatusCode)
@@ -84,7 +85,7 @@ namespace TextITMVC.Controllers
                 if (korisnik != null)
                 {
                     korisnik.potvrda = true;
-                   // db.SaveChanges();
+                   
                     return View("~/Views/Registration/Uspjesno.cshtml");
                    
                 }
@@ -162,14 +163,18 @@ namespace TextITMVC.Controllers
                 else
                 {
                     ViewBag.Message = "Valid";
+                   
                     HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
                     if (responseMessage.IsSuccessStatusCode)
                     {
                        // TempData["alertMessage"] = "USPJESNO";
                         //ako su validni svi podaci o korisniku, potrebno je pozvati metodu za slanje maila
+                        Korisnik k = await responseMessage.Content.ReadAsAsync<Korisnik>();
+                        
                         string mail = Emp.email.ToString();
-                        int id = Emp.korisnikID;
-                        SendRegistrationMail(mail, id);
+                        //int id = k.korisnikID;
+                        Session["id"] = k.korisnikID;
+                        SendRegistrationMail(mail);
                     }
                     else
                         return RedirectToAction("Error");
