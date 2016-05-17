@@ -188,6 +188,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\httpClient.cs" />
+    <Compile Include="Controllers\KomentarController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\TekstController.cs" />
     <Compile Include="Controllers\KorisnikController.cs" />
@@ -272,6 +273,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\KomentarAdd.js" />
+    <Content Include="Scripts\Komentari.js" />
     <Content Include="Scripts\Korisnici.js" />
     <Content Include="Scripts\KorisnikAdd.js" />
     <Content Include="Scripts\KorisnikEdit.js" />
@@ -328,6 +331,8 @@
     <Content Include="Views\Registration\FailRegistration.cshtml" />
     <Content Include="Views\Registration\Link.cshtml" />
     <Content Include="Views\Registration\Uspjesno.cshtml" />
+    <Content Include="Views\Komentar\Index.cshtml" />
+    <Content Include="Views\Komentar\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

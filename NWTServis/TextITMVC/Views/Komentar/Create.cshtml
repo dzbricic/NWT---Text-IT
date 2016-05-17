@@ -1,0 +1,103 @@
+﻿@model ServisTextIT.Models.Komentar
+
+@{
+    ViewBag.Title = "Komentar";
+}
+
+<h2>Komentari</h2>
+<div ng-controller="Komentari" data-ng-init="getKomentar()">
+    <table class="table">
+        <tr>
+            <td style="font-weight:700">
+                Sadrzaj
+            </td>
+            <td style="font-weight:700">
+                Datum objave
+            </td>
+        </tr>
+        <tr ng-repeat="komentar in komentari">
+            <td>
+                {{komentar.sadrzaj}}
+            </td>
+            <td>
+                {{komentar.datumObjave}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div ng-controller="KomentarAdd">
+    
+    <br />
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">ID</label></td>
+            <td><input ng-model="komentar.id" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label>Sadrzaj</label></td>
+            <td><input placeholder="Unesite sadrzaj komentara" ng-model="komentar.sadrzaj" style="width:1000px;height:300px"/></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">datumObjave</label></td>
+            <td><input ng-model="komentar.datumObjave" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">Korisnik</label></td>
+            <td><input ng-model="komentar.korisnikID" style="visibility:hidden" /></td>
+        </tr>
+        
+    </table>
+    <button type="button" ng-click="addKomentar('@Model.komentarID')" class="btn btn-primary btn-large" ng-model="dodaj">Dodaj komentar</button>
+</div>
+@*
+
+@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Komentar</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.sadrzaj, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sadrzaj)
+                    @Html.ValidationMessageFor(model => model.sadrzaj)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.datumObjave, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.datumObjave)
+                    @Html.ValidationMessageFor(model => model.datumObjave)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.korisnikID, "korisnikID", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("korisnikID", String.Empty
+                    @Html.EditorFor(model => model.korisnikID)
+                    @Html.ValidationMessageFor(model => model.korisnikID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

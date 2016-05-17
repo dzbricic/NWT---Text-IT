@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ServisTextIT.Models.Komentar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Komentari</h2>
+<div ng-controller="Komentari" data-ng-init="getKomentar()">
+    <table class="table">
+        <tr>
+            <td style="font-weight:700">
+                Sadrzaj
+            </td>
+            <td style="font-weight:700">
+                Datum objave
+            </td>
+            <td style="font-weight:700">
+                Kreirao
+            </td>
+        </tr>
+        <tr ng-repeat="komentar in komentari">
+            <td>
+                {{komentar.sadrzaj}}
+            </td>
+            <td>
+                {{komentar.datumObjave}}
+            </td>
+            <td>
+                {{komentar.korisnikID}}
+            </td>
+        </tr>
+    </table>
+ </div>
+    <!--<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.korisnik.ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sadrzaj)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datumObjave)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.korisnik.ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sadrzaj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datumObjave)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.komentarID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.komentarID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.komentarID })
+                </td>
+            </tr>
+        }
+
+        </table>-->

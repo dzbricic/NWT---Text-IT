@@ -15,5 +15,7 @@ namespace TextITMVC.Models
         }
 
         public System.Data.Entity.DbSet<ServisTextIT.Models.Korisnik> Korisniks { get; set; }
+
+        public System.Data.Entity.DbSet<ServisTextIT.Models.Komentar> Komentars { get; set; }
     }
 }

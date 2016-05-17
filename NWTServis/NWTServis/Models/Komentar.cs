@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,7 @@ namespace ServisTextIT.Models
         public string sadrzaj { get; set; }
         public DateTime datumObjave { get; set; }
         public int korisnikID { get; set; }
+        [JsonIgnore]
         public virtual Korisnik korisnik { get; set; }
 
 

@@ -10,8 +10,9 @@
         <div ng-repeat="tekst in tekstovi">
             <label>{{tekst.naslov}}</label>
             <p ng-model="tekst">{{tekst.sadrzaj}}</p>
-            <hr/>
-        </div>
+            <div>
+                @Html.ActionLink("Komentari", "Create", "Komentar")
+            </div>
     </div>
     
 </div>
