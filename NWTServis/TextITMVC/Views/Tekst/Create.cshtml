@@ -5,72 +5,47 @@
 }
 
 <h2>Create</h2>
+<div ng-controller="TekstAdd">
+    <button type="button" ng-click="addTekst('@Model.tekstID')" class="btn btn-primary btn-large" ng-model="dodaj">Dodaj tekst</button>
+    <br />
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">ID</label></td>
+            <td><input ng-model="tekst.id" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label>Naslov</label></td>
+            <td><input placeholder="naslov" ng-model="tekst.naslov" /></td>
+        </tr>
+        <tr>
+            <td><label>Sadrzaj</label></td>
+            <td><input ng-model="tekst.sadrzaj" /></td>
+        </tr>
+        <tr>
+            <td><label>Link</label></td>
+            <td><input ng-model="tekst.link" /></td>
+        </tr>
+        <tr>
+            <td><label>Like</label></td>
+            <td><input ng-model="tekst.like" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">datumObjave</label></td>
+            <td><input ng-model="tekst.datumObjave" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">korisnikID</label></td>
+            <td><input ng-model="tekst.korisnikID" style="visibility:hidden" /></td>
+        </tr>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Tekst</h4>
-        <hr />
-        @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.naslov, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.naslov)
-                @Html.ValidationMessageFor(model => model.naslov)
-            </div>
-        </div>
+    </table>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.sadrzaj, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.sadrzaj)
-                @Html.ValidationMessageFor(model => model.sadrzaj)
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.link, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.link)
-                @Html.ValidationMessageFor(model => model.link)
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.like, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.like)
-                @Html.ValidationMessageFor(model => model.like)
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.datumObjave, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.datumObjave)
-                @Html.ValidationMessageFor(model => model.datumObjave)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.korisnikID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.korisnikID)
-                @Html.ValidationMessageFor(model => model.korisnikID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

@@ -4,69 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.naslov)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sadrzaj)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.link)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.like)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.datumObjave)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.korisnikID)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.naslov)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sadrzaj)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.link)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.like)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.datumObjave)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.korisnikID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.tekstID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.tekstID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.tekstID })
-        </td>
-    </tr>
-}
-
-</table>
 
 
-<h2>Tekstovi</h2>
-<div ng-controller="Tekst">
-    <button type="button" ng-click="getTekst()">DAJ!</button>
-    <ul>
-        <li ng-repeat="tekstovi in items">tekstovi.naslov</li>
-    </ul>
+
+
+<h1>Tekstovi</h1>
+<div ng-controller="Tekstovi" data-ng-init="getTekst()">
+    <button>
+        <div>
+            @Html.ActionLink("Dodaj Tekst", "Create")
+        </div>
+    </button>
+    <br />
+    <div title="Tekstovi">
+
+        <hr />
+        <div ng-repeat="tekst in tekstovi">
+            <label>{{tekst.naslov}}</label>
+            <p ng-model="tekst">{{tekst.sadrzaj}}</p>
+            <p ng-model="tekst">{{tekst.datumObjave}}</p>
+            <table class="table">
+                <tr>
+                    <td>
+                        <button type="button" ng-click="deleteTekst(tekst)" class="btn btn-primary btn-large" ng-model="tekst.tekstID">Obrisi!</button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="editTekst(tekst)" class="btn btn-primary btn-large" ng-model="tekst.tekstID">Izmijeni</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
