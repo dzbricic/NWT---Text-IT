@@ -17,7 +17,8 @@ app.config(["$translateProvider", function ($translateProvider) {
         PRIJAVA: "Log in",
         LOGIN: "Log in with your account.",
         REGSE: "Register if you don't have account.",
-        ODJAVA: "Log out"
+        ODJAVA: "Log out",
+        KOMENTARI: "Comments"
     })
     $translateProvider.translations('bs', {
         KORISNICI: 'Korisnici',
@@ -30,7 +31,8 @@ app.config(["$translateProvider", function ($translateProvider) {
         PRIJAVA: "Prijava",
         LOGIN: "Logirajte se sa postojećim računom.",
         REGSE: "Registrujte se ukoliko nemate račun.",
-        ODJAVA: "Odjava"
+        ODJAVA: "Odjava",
+        KOMENTARI: "Komentari"
     });
     $translateProvider.preferredLanguage('bs');
 }])

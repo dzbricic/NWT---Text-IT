@@ -274,6 +274,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\KomentarAdd.js" />
+    <Content Include="Scripts\KomentarEdit.js" />
     <Content Include="Scripts\Komentari.js" />
     <Content Include="Scripts\Korisnici.js" />
     <Content Include="Scripts\KorisnikAdd.js" />
@@ -333,6 +334,8 @@
     <Content Include="Views\Registration\Uspjesno.cshtml" />
     <Content Include="Views\Komentar\Index.cshtml" />
     <Content Include="Views\Komentar\Create.cshtml" />
+    <Content Include="Views\Komentar\Edit.cshtml" />
+    <Content Include="Views\Komentar\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

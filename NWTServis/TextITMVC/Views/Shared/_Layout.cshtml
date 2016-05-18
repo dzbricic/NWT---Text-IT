@@ -24,6 +24,7 @@
     <script src="~/Scripts/Home.js"></script>
     <script src="~/Scripts/KomentarAdd.js"></script>
     <script src="~/Scripts/Komentari.js"></script>
+    <script src="~/Scripts/KomentarEdit.js"></script>
 </head>
 
 
@@ -45,7 +46,7 @@
                             <li> <a id="tekstovi" href="/tekst"> {{ "TEKSTOVI" | translate }} </a></li>
                             <li> <a id="profil" href="/korisnik/mojprofil"> Moj profil </a></li>
                             <li> <a id="korisnici" href="/korisnik"> {{ "KORISNICI" | translate }} </a></li>
-                            
+                            <li> <a id="komentari" href="/komentar"> {{ "KOMENTARI" | translate }} </a></li>
                         </ul>
                         @Html.Partial("_LoginPartial")
 
@@ -80,18 +81,21 @@
         document.getElementById('korisnici').style.visibility = 'visible';
         document.getElementById('home').style.visibility = 'visible';
         document.getElementById('profil').style.visibility = 'visible';
+        document.getElementById('komentari').style.visibility = 'visible';
     }
     else if (tipKorisnika == "User") {
         document.getElementById('tekstovi').style.visibility = 'visible';
         document.getElementById('korisnici').style.visibility = 'hidden';
         document.getElementById('home').style.visibility = 'visible';
         document.getElementById('profil').style.visibility = 'visible';
+        document.getElementById('komentari').style.visibility = 'hidden';
     }
     else {
         document.getElementById('tekstovi').style.visibility = 'hidden';
         document.getElementById('korisnici').style.visibility = 'hidden';
         document.getElementById('home').style.visibility = 'visible';
         document.getElementById('profil').style.visibility = 'hidden';
+        document.getElementById('komentari').style.visibility = 'hidden';
 
     }
 </script>
