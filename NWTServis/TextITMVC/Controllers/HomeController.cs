@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using ServisTextIT.Models;
+using System.Net.Mail;
 
 
 namespace TextITMVC.Controllers
@@ -39,6 +40,31 @@ namespace TextITMVC.Controllers
         {
               return View();
         }
+        public ActionResult ResetPass()
+        {
+            return View();
+        }
+
+        //funkcija za slanje maila
+        private void SendRegistrationMail(string mailTo)
+        {
+            string link = "http://localhost:36729/Registration/confirmregistration";
+
+            MailMessage msg = new MailMessage();
+
+            msg.From = new MailAddress("sgrosic1@gmail.com");
+            msg.To.Add(new MailAddress(mailTo));
+            msg.Body = "Potvrdite Vašu novu lozinku, kliknite<a href=" + link + ">ovdje</a>!";
+            msg.Subject = "Potvrda lozinke";
+            msg.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", Convert.ToInt32(587));
+            smtpClient.Credentials = new System.Net.NetworkCredential("sgrosic1", "88aida19");
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(msg);
+        }
+
+
 
     }
 }

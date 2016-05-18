@@ -338,6 +338,7 @@
     <Content Include="Views\Komentar\Create.cshtml" />
     <Content Include="Views\Komentar\Edit.cshtml" />
     <Content Include="Views\Komentar\Delete.cshtml" />
+    <Content Include="Views\Home\ResetPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
