@@ -3,7 +3,7 @@
 app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
     $scope.komentari = []
     $scope.getKomentar = function () {
-        $http.get("http://localhost:3106/api/komentar", $scope.komentari).success(function (data, status) {
+        $http.get("http://textit.azurewebsites.net/api/komentar", $scope.komentari).success(function (data, status) {
             $scope.komentari = data;
 
         }).error(function (data, status) {
@@ -17,7 +17,7 @@ app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
     }
 
     $scope.deleteKomentar = function (k) {
-        $http.delete("http://localhost:3106/api/komentar/" + k.komentarID).success(function (data, status) {
+        $http.delete("http://textit.azurewebsites.net/api/komentar/" + k.komentarID).success(function (data, status) {
             alert("Komentar obrisan!");
         }).error(function (data, status) {
             alert("Neuspjesno!");

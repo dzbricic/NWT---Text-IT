@@ -10,7 +10,7 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
             tipKorisnika: '',
             potvrda: ''
         }
-        $http.get("http://localhost:3106/api/Korisnik/" + sessionStorage.getItem("ID")).success(function (response) {
+        $http.get("http://textit.azurewebsites.net/api/Korisnik/" + sessionStorage.getItem("ID")).success(function (response) {
             var arr = $.map(response, function (el) { return el });
             $scope.korisnik.id = arr[0];
             $scope.korisnik.ime = arr[1];
@@ -38,7 +38,7 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
             potvrda: sessionStorage.getItem("potvrda")
            
         }
-        $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
+        $http.put("http://textit.azurewebsites.net/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
             alert("OK");
             window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {

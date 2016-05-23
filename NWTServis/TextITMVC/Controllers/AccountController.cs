@@ -23,7 +23,7 @@ namespace TextITMVC.Controllers
         HttpClient client;
         
         //The URL of the WEB API Service
-        string url = "http://localhost:3106/api/account";
+        string url = "http://textit.azurewebsites.net/api/account";
 
         public AccountController()
             //: this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))

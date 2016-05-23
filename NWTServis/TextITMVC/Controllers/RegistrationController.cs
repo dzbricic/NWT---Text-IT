@@ -22,7 +22,7 @@ namespace TextITMVC.Controllers
     {
 
          HttpClient client;
-         string url = "http://localhost:3106/api/korisnik";
+         string url = "http://textit.azurewebsites.net/api/korisnik";
 
         
         public RegistrationController()

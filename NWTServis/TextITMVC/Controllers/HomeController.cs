@@ -25,7 +25,7 @@ namespace TextITMVC.Controllers
         {
             List<Korisnik> l = new List<Korisnik>();
             HttpClient client = new HttpClient();
-            client.BaseAddress =new Uri ("http://localhost:3106/");
+            client.BaseAddress = new Uri("http://textit.azurewebsites.net/");
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("api/korisnik").Result;

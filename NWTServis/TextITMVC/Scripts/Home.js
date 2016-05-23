@@ -3,7 +3,7 @@
 app.controller('Tekst', ["$scope", "$http", function ($scope, $http) {
     $scope.tekstovi = []
     $scope.getTekstovi= function () {
-        $http.get("http://localhost:3106/api/Tekst", $scope.korisnici).success(function (data, status) {
+        $http.get("http://textit.azurewebsites.net/api/Tekst", $scope.korisnici).success(function (data, status) {
             $scope.tekstovi = data;
 
         }).error(function (data, status) {

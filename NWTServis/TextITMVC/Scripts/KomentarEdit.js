@@ -7,7 +7,7 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: '',
             korisnikID: ''
         }
-        $http.get("http://localhost:3106/api/Komentar/" + k).success(function (response) {
+        $http.get("http://textit.azurewebsites.net/api/Komentar/" + k).success(function (response) {
             var arr = $.map(response, function (el) { return el });
             $scope.komentar.id = arr[0];
             $scope.komentar.sadrzaj = arr[1];
@@ -25,7 +25,7 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
         }
-        $http.put("http://localhost:3106/api/komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
+        $http.put("http://textit.azurewebsites.net/api/komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
             alert("OK");
             window.location = "http://localhost:36729/Komentar/Index";
         }).error(function (data, status) {
