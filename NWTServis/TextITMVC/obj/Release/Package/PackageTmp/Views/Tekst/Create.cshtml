@@ -1,0 +1,51 @@
+﻿@model ServisTextIT.Models.Tekst
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<div ng-controller="TekstAdd">
+    <button type="button" ng-click="addTekst('@Model.tekstID')" class="btn btn-primary btn-large" ng-model="dodaj">Dodaj tekst</button>
+    <br />
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">ID</label></td>
+            <td><input ng-model="tekst.id" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label>Naslov</label></td>
+            <td><input placeholder="naslov" ng-model="tekst.naslov" /></td>
+        </tr>
+        <tr>
+            <td><label>Sadrzaj</label></td>
+            <td><input ng-model="tekst.sadrzaj" /></td>
+        </tr>
+        <tr>
+            <td><label>Link</label></td>
+            <td><input ng-model="tekst.link" /></td>
+        </tr>
+        <tr>
+            <td><label>Like</label></td>
+            <td><input ng-model="tekst.like" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">datumObjave</label></td>
+            <td><input ng-model="tekst.datumObjave" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">korisnikID</label></td>
+            <td><input ng-model="tekst.korisnikID" style="visibility:hidden" /></td>
+        </tr>
+
+
+    </table>
+
+
+
+
+</div>

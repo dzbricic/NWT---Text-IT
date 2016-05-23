@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ServisTextIT.Models.Korisnik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Korisnici</h2>
+<div ng-controller="Korisnik" data-ng-init="getKorisnik()">
+    <button ><div>
+    @Html.ActionLink("Dodaj korisnika", "Create")
+</div></button>
+    <table class="table">
+        <tr>
+            <td style="font-weight:700">
+                Ime
+            </td>
+            <td style="font-weight:700">
+                Prezime
+            </td>
+            <td style="font-weight:700">
+                Korisnicko ime
+            </td>
+            <td style="font-weight:700">
+                Email
+            </td>
+            <td style="font-weight:700">
+                Tip korisnika
+            </td>
+            <td style="font-weight:700">Banuj korisnika</td>
+            <td style="font-weight:700">Izmijeni korisnika</td>
+        </tr>
+        <tr ng-repeat="korisnik in korisnici">
+            <td>
+                {{korisnik.ime}}
+            </td>
+            <td>
+                {{korisnik.prezime}}
+            </td>
+            <td>
+                {{korisnik.korisnickoIme}}
+            </td>
+            <td>
+                {{korisnik.email}}
+            </td>
+            <td>
+                {{korisnik.tipKorisnika}}
+            </td>
+            <td>
+                <button type="button" ng-click="deleteKorisnik(korisnik)" class="btn btn-primary btn-large" ng-model="korisnik.korisnikID">Banuj!</button>
+            </td>
+            <td>
+                <button type="button" ng-click="editKorisnik(korisnik)" class="btn btn-primary btn-large" ng-model="korisnik.korisnikID">Izmijeni</button>
+            </td>
+        </tr>
+    </table>
+</div>

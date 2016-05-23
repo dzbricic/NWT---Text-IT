@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <div ng-controller="Logout">
+        <div style="align-content:initial" align="right" ng-controller="appctrl">
+            <ul class="nav navbar-nav navbar-right">
+               
+                <li><a id="login" href="/Home/Login">{{ "PRIJAVA" | translate }}</a></li>
+                <li><a id="registracija" href="/Registration/RegisterUser">{{ "REGISTRACIJA" | translate }}</a></li>
+                <li><a id="logout" ng-click="logout()">{{ "ODJAVA" | translate }}</a></li>
+
+                <li><img src="/Images/bosnian_flag.png" style="width:30px;height:18px"  ng-click="switchLanguage('bs')" /></li>
+                <li><img src="/Images/english_flag.png" style="width:40px;height:30px" ng-click="switchLanguage('en')" /></li>
+            </ul>
+       </div>
+    </div>
+    
+}
+
+<script>
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('login').style.visibility = 'hidden';
+        document.getElementById('registracija').style.visibility = 'hidden';
+        document.getElementById('logout').style.visibility = 'visible';
+    }
+    else if (tipKorisnika == "User") {
+        document.getElementById('login').style.visibility = 'hidden';
+        document.getElementById('registracija').style.visibility = 'hidden';
+        document.getElementById('logout').style.visibility = 'visible';
+    }
+    else {
+        document.getElementById('login').style.visibility = 'visible';
+        document.getElementById('registracija').style.visibility = 'visible';
+        document.getElementById('logout').style.visibility = 'hidden';
+
+    }
+</script>

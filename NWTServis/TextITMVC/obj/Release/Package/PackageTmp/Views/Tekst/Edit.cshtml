@@ -1,0 +1,52 @@
+﻿@model ServisTextIT.Models.Tekst
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Izmijeni</h2>
+
+
+<h4>Tekst</h4>
+<hr />
+
+<div ng-controller="KorisnikEdit" data-ng-init="editKorisnik('@Model.korisnikID')">
+    <table>
+        <tr>
+            <td><label style="visibility:hidden">ID</label></td>
+            <td><input ng-model="tekst.id" style="visibility:hidden" /></td>
+        </tr>
+        <tr>
+            <td><label>Naslov</label></td>
+            <td><input placeholder="naslov" ng-model="tekst.naslov" /></td>
+        </tr>
+        <tr>
+            <td><label>Sadrzaj</label></td>
+            <td><input ng-model="tekst.sadrzaj" /></td>
+        </tr>
+        <tr>
+            <td><label>Link</label></td>
+            <td><input ng-model="tekst.link" /></td>
+        </tr>
+        <tr>
+            <td><label>Like</label></td>
+            <td><input ng-model="tekst.like" /></td>
+        </tr>
+        <tr>
+            <td><label style="visibility:hidden">Korisnik</label></td>
+            <td><input ng-model="tekst.korisnikID" style="visibility:hidden" /></td>
+        </tr>
+
+
+    </table>
+    <button type="button" ng-click="updateTekst('@Model.tekstID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni tekst</button>
+
+
+
+
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

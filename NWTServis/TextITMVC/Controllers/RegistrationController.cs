@@ -55,7 +55,7 @@ namespace TextITMVC.Controllers
         //funkcija za slanje maila
         private void SendRegistrationMail(string mailTo)
         {
-            string link = "http://localhost:36729/Registration/confirmregistration"; 
+            string link = "http://knjizevnikutak.azurewebsites.net/Registration/confirmregistration"; 
 
             MailMessage msg = new MailMessage();
              
