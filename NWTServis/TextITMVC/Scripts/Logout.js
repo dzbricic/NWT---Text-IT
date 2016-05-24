@@ -7,6 +7,6 @@ app.controller('Logout', ["$scope", function ($scope) {
         sessionStorage.removeItem("korisnickoIme");
         sessionStorage.removeItem("sifra");
         sessionStorage.removeItem("tipKorisnika");
-        window.location = "http://knjizevnikutak.azurewebsites.net/Home/Index";
+        window.location = "http://localhost:36729/Home/Index";
     }
 }]);

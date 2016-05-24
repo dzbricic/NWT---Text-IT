@@ -27,7 +27,7 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
         }
         $http.put("http://textit.azurewebsites.net/api/komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
             alert("OK");
-            window.location = "http://knjizevnikutak.azurewebsites.net/Komentar/Index";
+            window.location = "http://localhost:36729/omentar/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
         });

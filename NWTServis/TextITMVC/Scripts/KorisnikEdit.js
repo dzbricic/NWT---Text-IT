@@ -38,7 +38,7 @@ app.controller('KorisnikEdit', ["$scope", "$http", function ($scope, $http) {
         }
         $http.put("http://textit.azurewebsites.net/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
             alert("OK");
-            window.location = "http://knjizevnikutak.azurewebsites.net/Korisnik/Index";
+            window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
         });

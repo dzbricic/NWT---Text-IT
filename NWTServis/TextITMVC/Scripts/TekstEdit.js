@@ -36,7 +36,7 @@ app.controller('TekstEdit', ["$scope", "$http", function ($scope, $http) {
         }
         $http.put("http://textit.azurewebsites.net/api/Tekst/" + $scope.tekst.id, $scope.tekst).success(function (response) {
             alert("OK");
-            window.location = "http://knjizevnikutak.azurewebsites.net/Tekst/Index";
+            window.location = "http://localhost:36729/Tekst/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
         });

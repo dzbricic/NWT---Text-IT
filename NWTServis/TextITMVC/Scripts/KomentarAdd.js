@@ -10,7 +10,7 @@ app.controller('KomentarAdd', ["$scope", "$http", function ($scope, $http) {
             korisnikID: sessionStorage.getItem("ID")
         }
         $http.post("http://textit.azurewebsites.net/api/komentar/", $scope.komentar).success(function (response) {
-            window.location = "http://knjizevnikutak.azurewebsites.net/Home/Index";
+            window.location = "http://localhost:36729/Home/Index";
         }).error(function (data, status) {
             alert("Dodavanje nije uspjelo. Molimo pokusajte ponovo.");
         });

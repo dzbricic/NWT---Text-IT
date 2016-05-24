@@ -22,7 +22,7 @@ app.controller('Tekstovi', ["$scope", "$http", function ($scope, $http) {
     }
 
     $scope.editTekst = function (k) {
-        window.location = "http://knjizevnikutak.azurewebsites.net/Tekst/Edit/" + k.tekstID, k;
+        window.location = "http://localhost:36729/Tekst/Edit/" + k.tekstID, k;
         $scope.sadrzaj = k.sadrzaj;
     }
 

@@ -21,7 +21,7 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 if (arr[7] == true)
                 {
                     alert("Uspjesno ste se logovali!");
-                    window.location = "http://knjizevnikutak.azurewebsites.net/Home/Index";
+                    window.location = "http://localhost:36729/Home/Index";
                 }
                 else
                 {

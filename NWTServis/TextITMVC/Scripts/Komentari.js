@@ -12,7 +12,7 @@ app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
     }
 
     $scope.editKomentar = function (k) {
-        window.location = "http://knjizevnikutak.azurewebsites.net/Komentar/Edit/" + k.komentarID, k;
+        window.location = "http://localhost:36729/Komentar/Edit/" + k.komentarID, k;
         $scope.sadrzaj = k.sadrzaj;
     }
 

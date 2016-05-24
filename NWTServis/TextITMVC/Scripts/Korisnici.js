@@ -22,7 +22,7 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
     }
     $scope.editKorisnik = function (k)
     {
-        window.location = "http://knjizevnikutak.azurewebsites.net/Korisnik/Edit/" + k.korisnikID, k;
+        window.location = "http://localhost:36729/Korisnik/Edit/" + k.korisnikID, k;
         $scope.ime = k.ime;
        // $location.path('/employee-details/' + employee.EmployeeNumber);
     }
