@@ -10,7 +10,7 @@
 <h4>Tekst</h4>
 <hr />
 
-<div ng-controller="KorisnikEdit" data-ng-init="editKorisnik('@Model.korisnikID')">
+<div ng-controller="TekstEdit" data-ng-init="editTekst('@Model.tekstID')">
     <table>
         <tr>
             <td><label style="visibility:hidden">ID</label></td>
@@ -40,13 +40,5 @@
 
     </table>
     <button type="button" ng-click="updateTekst('@Model.tekstID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni tekst</button>
-
-
-
-
 </div>
 
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

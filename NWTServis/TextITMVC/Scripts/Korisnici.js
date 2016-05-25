@@ -7,7 +7,7 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
             $scope.korisnici = data;
 
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -15,9 +15,9 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
 
     $scope.deleteKorisnik = function (k) {
         $http.delete("http://textit.azurewebsites.net/api/Korisnik/" + k.korisnikID).success(function (data, status) {
-            alert("Banovan korisnik!");
+            alert("Uspješno ste obrisali korisnika!");
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
     $scope.editKorisnik = function (k)

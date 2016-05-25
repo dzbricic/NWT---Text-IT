@@ -7,7 +7,7 @@ app.controller('Tekstovi', ["$scope", "$http", function ($scope, $http) {
             $scope.tekstovi = data;
 
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -15,9 +15,9 @@ app.controller('Tekstovi', ["$scope", "$http", function ($scope, $http) {
 
     $scope.deleteTekst = function (k) {
         $http.delete("http://textit.azurewebsites.net/api/Tekst/" + k.tekstID).success(function (data, status) {
-            alert("Obrisan tekst!");
+            alert("Uspješno ste obrisali tekst!");
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 

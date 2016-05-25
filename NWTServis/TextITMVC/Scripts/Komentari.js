@@ -7,7 +7,7 @@ app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
             $scope.komentari = data;
 
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -18,9 +18,9 @@ app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
 
     $scope.deleteKomentar = function (k) {
         $http.delete("http://textit.azurewebsites.net/api/komentar/" + k.komentarID).success(function (data, status) {
-            alert("Komentar obrisan!");
+            alert("Uspješno ste obrisali komentar!");
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 

@@ -21,7 +21,7 @@ app.controller('KorisnikEdit', ["$scope", "$http", function ($scope, $http) {
             $scope.korisnik.tipKorisnika = arr[6];
             $scope.korisnik.potvrda = arr[7];
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -37,10 +37,10 @@ app.controller('KorisnikEdit', ["$scope", "$http", function ($scope, $http) {
             potvrda: $scope.korisnik.potvrda
         }
         $http.put("http://textit.azurewebsites.net/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
-            alert("OK");
+            alert("Uspješno ste izvršili izmjenu!");
             window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {
-            alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
+            alert("Izmjena nije uspjela. Molimo pokušajte ponovo.");
         });
     }
 

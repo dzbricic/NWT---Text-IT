@@ -12,7 +12,7 @@ app.controller('KomentarAdd', ["$scope", "$http", function ($scope, $http) {
         $http.post("http://textit.azurewebsites.net/api/komentar/", $scope.komentar).success(function (response) {
             window.location = "http://localhost:36729/Home/Index";
         }).error(function (data, status) {
-            alert("Dodavanje nije uspjelo. Molimo pokusajte ponovo.");
+            alert("Dodavanje nije uspjelo. Molimo pokušajte ponovo.");
         });
     }
 

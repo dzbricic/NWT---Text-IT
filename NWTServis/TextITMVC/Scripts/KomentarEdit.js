@@ -14,7 +14,7 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
             $scope.komentar.datumObjave = arr[2];
             $scope.komentar.korisnikID = arr[3];
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -25,11 +25,11 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
         }
-        $http.put("http://textit.azurewebsites.net/api/komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
-            alert("OK");
-            window.location = "http://localhost:36729/omentar/Index";
+        $http.post("http://textit.azurewebsites.net/api/Komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
+            alert("Uspješno ste izvršili izmjenu!");
+            window.location = "http://localhost:36729/komentar/Index";
         }).error(function (data, status) {
-            alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
+            alert("Izmjena nije uspjela. Molimo pokušajte ponovo.");
         });
     }
 

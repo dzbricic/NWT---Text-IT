@@ -20,7 +20,7 @@ app.controller('TekstEdit', ["$scope", "$http", function ($scope, $http) {
             $scope.tekst.datumObjave = arr[5];
             $scope.tekst.korisnikID = arr[9];
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
     }
 
@@ -34,11 +34,11 @@ app.controller('TekstEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
         }
-        $http.put("http://textit.azurewebsites.net/api/Tekst/" + $scope.tekst.id, $scope.tekst).success(function (response) {
-            alert("OK");
+        $http.post("http://textit.azurewebsites.net/api/Tekst/" + $scope.tekst.id, $scope.tekst).success(function (response) {
+            alert("Uspješno ste izvršili izmjenu!");
             window.location = "http://localhost:36729/Tekst/Index";
         }).error(function (data, status) {
-            alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
+            alert("Izmjena nije uspjela. Molimo pokušajte ponovo.");
         });
     }
 

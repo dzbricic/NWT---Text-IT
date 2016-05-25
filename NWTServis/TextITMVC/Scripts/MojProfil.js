@@ -21,7 +21,7 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
             $scope.korisnik.tipKorisnika = arr[6];
             $scope.korisnik.potvrda = arr[7];
         }).error(function (data, status) {
-            alert("Neuspjesno!");
+            alert("Neuspješno!");
         });
        
     }

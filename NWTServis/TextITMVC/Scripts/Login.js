@@ -20,16 +20,16 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 
                 if (arr[7] == true)
                 {
-                    alert("Uspjesno ste se logovali!");
+                    alert("Uspješno ste se logovali!");
                     window.location = "http://localhost:36729/Home/Index";
                 }
                 else
                 {
-                    alert("Da biste se logirali morate potvrditi Vasu registraciju!");
+                    alert("Da biste se logirali morate potvrditi Vašu registraciju!");
                 }
                
             }).error(function (data) {
-                alert("Login neuspjesan!");
+                alert("Login neuspješan!");
             });
         }
          
