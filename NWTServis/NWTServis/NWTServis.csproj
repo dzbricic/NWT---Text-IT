@@ -211,18 +211,19 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="KorisnikController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HashTagController.cs" />
     <Compile Include="KomentarController.cs" />
+    <Compile Include="KorisnikController.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\SqlDefaultValue.cs" />
     <Compile Include="Models\TextITDbContext.cs" />
     <Compile Include="Models\HashTag.cs" />
     <Compile Include="Models\Komentar.cs" />
@@ -268,6 +269,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\TextIT - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\TextIT - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />

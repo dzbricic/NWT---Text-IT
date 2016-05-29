@@ -48,6 +48,11 @@ namespace ServisTextIT.Models
 
         [DisplayName("Potvrda:")]
         public bool potvrda { get; set; }
+
+        [DisplayName("Banovan:")]
+        [DefaultValue(false)]
+        public bool banovan { get; set; }
+        public string salt { get; set; }
         public List<Tekst> tekst { get; set; }
         public List<Komentar> komentari { get; set; }
 

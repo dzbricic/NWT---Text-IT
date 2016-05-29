@@ -26,7 +26,7 @@ namespace ServisTextIT.Models
         public List<Ocjena> ocjene { get; set; }
         public int korisnikID { get; set; }
         public virtual Korisnik korisnik { get; set; }
-
+        public byte[] file { get; set; }
 
     }
 }

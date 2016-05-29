@@ -21,6 +21,7 @@ namespace ServisTextIT.Models
         public string sadrzaj { get; set; }
         public string link { get; set; }
         public int like { get; set; }
+     
         public DateTime datumObjave { get; set; }
         public List<HashTag> HashTag { get; set; }
         public List<Komentar> komentari { get; set; }
@@ -28,6 +29,7 @@ namespace ServisTextIT.Models
         public int korisnikID { get; set; }
         [JsonIgnore]
         public virtual Korisnik korisnik { get; set; }
+        public byte[] file { get; set; }
 
 
     }

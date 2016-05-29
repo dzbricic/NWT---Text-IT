@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Security;
+using NWTServis.Models;
 
 namespace ServisTextIT.Models
 {
@@ -49,6 +50,12 @@ namespace ServisTextIT.Models
 
         [DisplayName("Potvrda:")]
         public bool potvrda { get; set; }
+
+        [DisplayName("Banovan:")]
+        [DefaultValue(false)]
+        public bool banovan { get; set; }
+        public string salt { get; set; }
+
 
         [JsonIgnore]
         public List<Tekst> tekst { get; set; }
