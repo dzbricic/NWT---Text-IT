@@ -1,0 +1,47 @@
+﻿@model ServisTextIT.Models.Korisnik
+
+@{
+    ViewBag.Title = "Izmjena";
+}
+
+<h1>Izmjena lozinke.</h1>
+<h2>Promijenite svoju lozinku.</h2>
+
+@using (Html.BeginForm("IzmijeniLozinku", "Korisnik")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        
+        
+       <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sifra, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sifra)
+                @Html.ValidationMessageFor(model => model.sifra)
+            </div>
+        </div>
+
+       
+      
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Izmijeni" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

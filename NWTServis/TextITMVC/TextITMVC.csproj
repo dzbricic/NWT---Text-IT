@@ -339,6 +339,12 @@
     <Content Include="Views\Komentar\Edit.cshtml" />
     <Content Include="Views\Komentar\Delete.cshtml" />
     <Content Include="Views\Home\ResetPass.cshtml" />
+    <Content Include="Views\Korisnik\EnterEmail.cshtml" />
+    <Content Include="Views\Korisnik\Reset.cshtml" />
+    <Content Include="Views\Korisnik\Provjeri.cshtml" />
+    <Content Include="Views\Korisnik\Izmjena.cshtml" />
+    <Content Include="Views\Korisnik\Uspjesno.cshtml" />
+    <Content Include="Views\Korisnik\Neuspjesno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

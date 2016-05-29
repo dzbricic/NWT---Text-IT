@@ -363,3 +363,4 @@ C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\bin\Microsoft
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.csprojResolveAssemblyReference.cache
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.dll
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.pdb
+C:\Users\Sabina\Documents\GitHub\NWT---Text-IT\NWTServis\TextITMVC\obj\Debug\TextITMVC.csprojResolveAssemblyReference.cache
