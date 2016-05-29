@@ -8,28 +8,38 @@
         <br />
         <p style="align-content:center; font-style:oblique; text-decoration:dashed; font-weight:900; font-size:25px; color:orangered">Dobrodošli u naš mali književni kutak. Osjećajte se slobodnim da ostavite svoja djela!</p>
         <hr />
-        <div ng-repeat="tekst in tekstovi" class="jumbotron" style="background-color:whitesmoke">
-            <div style="text-align:left; font-size:10px">Objavio/la: {{tekst.korisnikID}}</div>
-            <table class="table-bordered">
+        <div ng-repeat="tekst in tekstovi | startFrom: (currentPage - 1) * pageSize| limitTo: pageSize" class="jumbotron" style="background-color:whitesmoke; ">
+            
+            <table class="table-bordered" style="width:1020px; border-width:3px; border-color:orangered; border-collapse:collapse">
                 <tr>
-                    <td style="width:1100px; border-width:3px; border-color:orangered">
+                    <td>
                         <label style="font-size: 20px">{{tekst.naslov}}</label>
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:1000px; border-width:3px; border-color:orangered">
+                    <td>
                         <p style="font-size:15px" ng-model="tekst">{{tekst.sadrzaj}}</p>
                     </td>
                 </tr>
+               
             </table>
             <br />
             <div style="text-align:right; font-style:italic; font-size:20px">
+                <div style="text-align:right; font-size:12px">Objavio/la: {{tekst.korisnikID}}</div>
                 @Html.ActionLink("Komentari", "Create", "Komentar")
             </div>
 
         </div>
-
+        <div style="align-content:center">
+           @* <uib-pagination total-items="tekstovi.lenght" ng-model="currentPage" ng-disabled="false" items-per-page="pageSize"></uib-pagination>*@
+            <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" items-per-page="itemsPerPage"></uib-pagination>
+            <pre>Trenutno ste na stranici: {{currentPage}}</pre>
+            
+        </div>
+        
+       
     </div>
+   
 </div>
 
     @*<div id="content">

@@ -1,4 +1,4 @@
-﻿var app = angular.module('app', ['pascalprecht.translate','ngRoute']);
+﻿var app = angular.module('app', ['pascalprecht.translate', 'ngRoute', 'ui.bootstrap']);
 app.controller("appctrl", ["$scope", "$translate", function ($scope, $translate) {
     $scope.selectedLanguage = $translate.preferredLanguage;
     $scope.switchLanguage = function (lang) {
@@ -38,3 +38,9 @@ app.config(["$translateProvider", function ($translateProvider) {
     });
     $translateProvider.preferredLanguage('bs');
 }])
+
+.filter('startFrom', function () {
+    return function (data, start) {
+        return data.slice(start);
+    }
+});
