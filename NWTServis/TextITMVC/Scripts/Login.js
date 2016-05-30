@@ -17,11 +17,15 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 sessionStorage.setItem("email", arr[5]);
                 sessionStorage.setItem("tipKorisnika", arr[6]);
                 sessionStorage.setItem("potvrda", arr[7]);
+                sessionStorage.setItem("banovan", arr[8]);
                 
-                if (arr[7] == true)
+                if (arr[7] == true && arr[8] == 0)
                 {
                     alert("Uspješno ste se logovali!");
                     window.location = "http://localhost:36729/Home/Index";
+                }
+                else if (arr[8] == 1) {
+                    alert("Pristup na TextIT Vam je zabranjen!");
                 }
                 else
                 {
