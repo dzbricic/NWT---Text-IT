@@ -9,8 +9,9 @@
         <p style="align-content:center; font-style:oblique; text-decoration:dashed; font-weight:900; font-size:25px; color:orangered">Dobrodošli u naš mali književni kutak. Osjećajte se slobodnim da ostavite svoja djela!</p>
         <hr />
         <div ng-repeat="tekst in tekstovi | startFrom: (currentPage - 1) * pageSize| limitTo: pageSize" class="jumbotron" style="background-color:whitesmoke; ">
-            
+            <input ng-model="tekst.tekstID" style="visibility:hidden" />
             <table class="table-bordered" style="width:1020px; border-width:3px; border-color:orangered; border-collapse:collapse">
+              
                 <tr>
                     <td>
                         <label style="font-size: 20px">{{tekst.naslov}}</label>
@@ -26,7 +27,8 @@
             <br />
             <div style="text-align:right; font-style:italic; font-size:20px">
                 <div style="text-align:right; font-size:12px">Objavio/la: {{tekst.korisnikID}}</div>
-                @Html.ActionLink("Komentari", "Create", "Komentar")
+                <button type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
+                @*@Html.ActionLink("Komentari", "Create", "Komentar", new { id =  tekst.tekstID })*@
             </div>
 
         </div>

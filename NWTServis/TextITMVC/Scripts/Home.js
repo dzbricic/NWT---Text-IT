@@ -24,6 +24,12 @@ app.controller('Tekst', ["$scope", "$http", function ($scope, $http) {
             alert("Neuspješno!");
         });
     }
+
+    $scope.createKomentar = function (id) {
+        alert(id);
+        sessionStorage.setItem("tekstID", id);
+        window.location = "http://localhost:36729/Komentar/Create";
+    }
     
    
 

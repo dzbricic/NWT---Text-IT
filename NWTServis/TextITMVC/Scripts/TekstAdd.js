@@ -11,6 +11,7 @@ app.controller('TekstAdd', ["$scope", "$http", function ($scope, $http) {
             like: $scope.tekst.like,
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
+            
         }
         $http.post("http://textit.azurewebsites.net/api/Tekst/", $scope.tekst).success(function (response) {
             window.location = "http://localhost:36729/Tekst/Index";
