@@ -196,6 +196,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LaraKlasa.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HashTag.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -347,6 +348,7 @@
     <Content Include="Views\Korisnik\Izmjena.cshtml" />
     <Content Include="Views\Korisnik\Uspjesno.cshtml" />
     <Content Include="Views\Korisnik\Neuspjesno.cshtml" />
+    <Content Include="Views\Tekst\Dijagram.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

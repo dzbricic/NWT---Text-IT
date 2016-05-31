@@ -257,7 +257,131 @@ namespace TextITMVC.Controllers
             return null;
         }
 
+        //akcija - dijagram broj komentara po korisniku!
+        public async Task<ActionResult> KomentarDijagram()
+        {
+
+            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
+            string url2 = "http://localhost:3106/api/komentar";
+            HttpResponseMessage responseMessage2 = await client.GetAsync(url2); // pokupi sve komentare
+            List<LaraKlasa> lara = new List<LaraKlasa>();
+            List<String> korisnickoIme = new List<String>();
+            List<int> brojKomentara = new List<int>();
+
+            if (responseMessage1.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
+            {
+
+                // sve korisnike smjesti u listu ko
+                var responseData1 = responseMessage1.Content.ReadAsStringAsync().Result;
+                var Korisnici = JsonConvert.DeserializeObject<List<Korisnik>>(responseData1);
+                List<Korisnik> ko = await responseMessage1.Content.ReadAsAsync<List<Korisnik>>();
+
+                // sve komentare smjesti u listu comm
+                var responseData2 = responseMessage2.Content.ReadAsStringAsync().Result;
+                var Komentari = JsonConvert.DeserializeObject<List<Komentar>>(responseData2);
+                List<Komentar> comm = await responseMessage2.Content.ReadAsAsync<List<Komentar>>();
+
+                for (int i = 0; i < ko.Count; i++)
+                {
+                    int koid = ko[i].korisnikID;
+                    int brojac = 0;
+                    for (int j = 0; j < comm.Count; j++)
+                    {
+                        if (koid == comm[j].korisnikID)
+                        {
+                            brojac++;
+                        }
+                    }
+                    LaraKlasa novi = new LaraKlasa(ko[i], brojac);
+                    lara.Add(novi);
+                }
+
+            }
+
+            foreach (LaraKlasa item in lara)
+            {
+                korisnickoIme.Add(item.Korisnik.korisnickoIme);
+                brojKomentara.Add(item.BrojKom);
+            }
+
+            IEnumerable<String> nazivi = korisnickoIme.ToList();
+            IEnumerable<int> brojke = brojKomentara.ToList();
+
+            var key = new Chart(width: 600, height: 400)
+
+            .AddTitle("Broj tekstova, komentara i korisnika")
+            .AddSeries(
+                "Default",
+                chartType: "Column",
+                // legend: "Rainfall",                
+                xValue: nazivi,
+                yValues: brojke)
+
+            .Write();
+
+
+            return null;
+        }
+
+
+
+
+        public async Task<ActionResult> PitaDijagramAdminUser()
+        {
+
+            HttpResponseMessage responseMessage = await client.GetAsync(url); 
+            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
+            
+            int brojadmina = 0;
+            int brojusera = 0;
+            List<String> ln = new List<String>();
+            List<int> br = new List<int>();
+
+            if (responseMessage.IsSuccessStatusCode && responseMessage1.IsSuccessStatusCode)
+            {
+    
+                // sve korisnike smjesti u listu ko
+                var responseData1 = responseMessage1.Content.ReadAsStringAsync().Result;
+                var Korisnici = JsonConvert.DeserializeObject<List<Korisnik>>(responseData1);
+                List<Korisnik> ko = await responseMessage1.Content.ReadAsAsync<List<Korisnik>>();
+                foreach (Korisnik kor in ko)
+                {
+                    if (kor.tipKorisnika=="admin")
+                        brojadmina+=1;
+                    else
+                        brojusera+=1;
+                }
+
+                ln.Add("Administratori");
+                br.Add(brojadmina);
+                ln.Add("Korisnici");
+                br.Add(brojusera);
+
+            }
+
+
+            IEnumerable<String> nazivi = ln.ToList();
+            IEnumerable<int> brojke = br.ToList();
+
+            var key = new Chart(width: 600, height: 400)
+
+            .AddTitle("Broj administratora i korisnika")
+            .AddSeries(
+                "Default",
+                chartType: "Pie",
+                // legend: "Rainfall",                
+                xValue: nazivi,
+                yValues: brojke)
+
+            .Write();
+
+
+            return null;
+        }
     }
+
 
 
   }
