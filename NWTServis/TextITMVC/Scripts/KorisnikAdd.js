@@ -13,7 +13,7 @@ app.controller('KorisnikAdd', ["$scope", "$http", function ($scope, $http) {
             sifra: $scope.korisnik.sifra,
             potvrda: $scope.korisnik.potvrda
         }
-        $http.post("http://textit.azurewebsites.net/api/Korisnik/", $scope.korisnik).success(function (response) {
+        $http.post("http://localhost:3106/api/Korisnik/", $scope.korisnik).success(function (response) {
             window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokušajte ponovo.");

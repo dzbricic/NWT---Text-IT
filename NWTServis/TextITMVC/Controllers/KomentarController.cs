@@ -18,7 +18,7 @@ namespace TextITMVC.Controllers
 
         HttpClient client;
         //The URL of the WEB API Service
-        string url = "http://textit.azurewebsites.net/api/komentar";
+        string url = "http://localhost:3106/api/komentar";
 
         //The HttpClient Class, this will be used for performing 
         //HTTP Operations, GET, POST, PUT, DELETE

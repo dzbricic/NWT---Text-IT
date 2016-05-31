@@ -6,7 +6,7 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
         Password: ''
     };
         $scope.Login = function () {
-            $http.post("http://textit.azurewebsites.net/api/Login", $scope.LoginPodaci).success(function (response) {
+            $http.post("http://localhost:3106/api/Login", $scope.LoginPodaci).success(function (response) {
                
                 var arr = $.map(response, function (el) { return el });
                 sessionStorage.setItem("ID", arr[0]);

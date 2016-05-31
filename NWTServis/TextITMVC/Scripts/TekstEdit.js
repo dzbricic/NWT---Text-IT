@@ -10,7 +10,7 @@ app.controller('TekstEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: '',
             korisnikID: ''
         }
-        $http.get("http://textit.azurewebsites.net/api/Tekst/" + t).success(function (response) {
+        $http.get("http://localhost:3106/api/Tekst/" + t).success(function (response) {
             var arr = $.map(response, function (el) { return el });
             $scope.tekst.id = arr[0];
             $scope.tekst.naslov = arr[1];
@@ -34,7 +34,7 @@ app.controller('TekstEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
         }
-        $http.post("http://textit.azurewebsites.net/api/Tekst/" + $scope.tekst.id, $scope.tekst).success(function (response) {
+        $http.post("http://localhost:3106/api/Tekst/" + $scope.tekst.id, $scope.tekst).success(function (response) {
             alert("Uspješno ste izvršili izmjenu!");
             window.location = "http://localhost:36729/Tekst/Index";
         }).error(function (data, status) {

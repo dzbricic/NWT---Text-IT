@@ -12,7 +12,8 @@ using reCAPTCHA.MVC;
 using System.Net;
 using ServisTextIT.Models;
 using System.Net.Mail;
-using ServisTextIT.Models; 
+using ServisTextIT.Models;
+using System.Text;
 
 
 
@@ -21,10 +22,10 @@ namespace TextITMVC.Controllers
     public class RegistrationController : Controller
     {
 
-         HttpClient client;
-         string url = "http://textit.azurewebsites.net/api/korisnik";
+        HttpClient client;
+        string url = "http://localhost:3106/api/korisnik";
 
-        
+
         public RegistrationController()
         {
             client = new HttpClient();
@@ -55,13 +56,13 @@ namespace TextITMVC.Controllers
         //funkcija za slanje maila
         private void SendRegistrationMail(string mailTo)
         {
-            string link = "http://localhost:36729/Registration/confirmregistration"; 
+            string link = "http://localhost:36729/Registration/confirmregistration";
 
             MailMessage msg = new MailMessage();
-             
+
             msg.From = new MailAddress("sgrosic1@gmail.com");
-            msg.To.Add(new MailAddress(mailTo)); 
-            msg.Body = "Dobrodošli na našu stranicu! Kliknite<a href="+ link +">ovdje</a> da potvrdite Vašu registraciju!";        
+            msg.To.Add(new MailAddress(mailTo));
+            msg.Body = "Dobrodošli na našu stranicu! Kliknite<a href=" + link + ">ovdje</a> da potvrdite Vašu registraciju!";
             msg.Subject = "Potvrda registracije";
             msg.IsBodyHtml = true;
 
@@ -90,130 +91,69 @@ namespace TextITMVC.Controllers
                     {
                         return View("~/Views/Registration/Uspjesno.cshtml");
                     }
-                   
-                   
+
+
                 }
                 else return View("~/Views/Registration/FailRegistration.cshtml");
-              
+
             }
             return View("Error");
-                 /*var korisnik db.Korisnik.Find(userId);
-            if(korisnik != null) {
-                korisnik.Potvrđen = true;
-	            db.SaveChanges();
-                return View(); 
-            }else return View(); //neki view sa porukom da korisnik ne postoji*/
-}
+            /*var korisnik db.Korisnik.Find(userId);
+       if(korisnik != null) {
+           korisnik.Potvrđen = true;
+           db.SaveChanges();
+           return View(); 
+       }else return View(); //neki view sa porukom da korisnik ne postoji*/
+        }
+
+        public static String ByteArrayToHexString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+
+            foreach (byte b in ba)
+            {
+                hex.AppendFormat("{0:x2}", b);
+            }
+            return hex.ToString();
+        }
+
+        public String CreateSalt(int size)
+        {
+            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            var buff = new byte[size];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
 
 
-        
+        public String GenerateSHA256Hash(String input, String salt)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
+            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+            String str = ByteArrayToHexString(hash);
+            return str;
+        }
 
         [HttpPost]
         public async Task<ActionResult> RegisterUser(Korisnik Emp)
         {
-
-           // HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
-        
-           
-               //dodan za recaptcha
-                var response = Request["g-recaptcha-response"];
-                //secret that was generated in key value pair
-                const string secret = "6LcRYx8TAAAAAGlbk0C8WvSBIFjpzZ6j1pTIQCuC";
-
-                var client1 = new WebClient();
-                var reply =
-                    client1.DownloadString(
-                        string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
-
-                var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
-
-                //when response is false check for the error message
-                if (!captchaResponse.Success)
-                {
-                    if (captchaResponse.ErrorCodes.Count <= 0) return View();
-
-                    var error = captchaResponse.ErrorCodes[0].ToLower();
-                    switch (error)
-                    {
-                        case ("missing-input-secret"):
-                            ViewBag.Message = "The secret parameter is missing.";
-                            TempData["notice"] = "The secret parameter is missing.";
-                            return RedirectToAction("RegisterUser", "Registration");
-                           // break;
-                        case ("invalid-input-secret"):
-                            ViewBag.Message = "The secret parameter is invalid or malformed.";
-                            TempData["notice"] = "The secret parameter is invalid or malformed.";
-                            return RedirectToAction("RegisterUser", "Registration");
-                           // break;
-
-                        case ("missing-input-response"):
-                            ViewBag.Message = "The response parameter is missing.";
-                            TempData["notice"] = "The response parameter is missing.";
-                            return RedirectToAction("RegisterUser", "Registration");
-                           // break;
-                        case ("invalid-input-response"):
-                            ViewBag.Message = "The response parameter is invalid or malformed.";
-                            TempData["notice"] = "The secret parameter is invalid or malformed.";
-                            return RedirectToAction("RegisterUser", "Registration");
-                           // break;
-
-                        default:
-                            ViewBag.Message = "Error occured. Please try again";
-                            TempData["notice"] = "Error occured. Please try again";
-                            return RedirectToAction("RegisterUser", "Registration");
-                            //break;
-                    }
-                }
-                else
-                {
-                    ViewBag.Message = "Valid";
-                   
-                    HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
-                    if (responseMessage.IsSuccessStatusCode)
-                    {
-                       // TempData["alertMessage"] = "USPJESNO";
-                        //ako su validni svi podaci o korisniku, potrebno je pozvati metodu za slanje maila
-                        Korisnik k = await responseMessage.Content.ReadAsAsync<Korisnik>();
-                        
-                        string mail = Emp.email.ToString();
-                        //int id = k.korisnikID;
-                        Session["id"] = k.korisnikID;
-                        SendRegistrationMail(mail);
-                    }
-                    else
-                        return RedirectToAction("Error");
-
-                    return View("~/Views/Registration/Link.cshtml");
-                }
-
-                //kraj
+            String salt = CreateSalt(10);
+            Emp.salt = salt;
+            String sifra = Emp.sifra;
+            String hashpassword = GenerateSHA256Hash(sifra, salt);
+            Emp.sifra = hashpassword;
+            // HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
 
 
-            // if (responseMessage.IsSuccessStatusCode)
-            // {
-                //return RedirectToAction("Index", "Home");
-            //}
-            //return RedirectToAction("Error");
-        }
-
-
-        // GET: /Registration/
-        /*public ActionResult Index()
-        {
-            return View();
-        }*/
-
-
-      /*  [HttpPost]
-        public ActionResult ValidateCaptcha()
-        {
+            //dodan za recaptcha
             var response = Request["g-recaptcha-response"];
             //secret that was generated in key value pair
             const string secret = "6LcRYx8TAAAAAGlbk0C8WvSBIFjpzZ6j1pTIQCuC";
 
-            var client = new WebClient();
+            var client1 = new WebClient();
             var reply =
-                client.DownloadString(
+                client1.DownloadString(
                     string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
 
             var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
@@ -228,29 +168,121 @@ namespace TextITMVC.Controllers
                 {
                     case ("missing-input-secret"):
                         ViewBag.Message = "The secret parameter is missing.";
-                        break;
+                        TempData["notice"] = "The secret parameter is missing.";
+                        return RedirectToAction("RegisterUser", "Registration");
+                    // break;
                     case ("invalid-input-secret"):
                         ViewBag.Message = "The secret parameter is invalid or malformed.";
-                        break;
+                        TempData["notice"] = "The secret parameter is invalid or malformed.";
+                        return RedirectToAction("RegisterUser", "Registration");
+                    // break;
 
                     case ("missing-input-response"):
                         ViewBag.Message = "The response parameter is missing.";
-                        break;
+                        TempData["notice"] = "The response parameter is missing.";
+                        return RedirectToAction("RegisterUser", "Registration");
+                    // break;
                     case ("invalid-input-response"):
                         ViewBag.Message = "The response parameter is invalid or malformed.";
-                        break;
+                        TempData["notice"] = "The secret parameter is invalid or malformed.";
+                        return RedirectToAction("RegisterUser", "Registration");
+                    // break;
 
                     default:
                         ViewBag.Message = "Error occured. Please try again";
-                        break;
+                        TempData["notice"] = "Error occured. Please try again";
+                        return RedirectToAction("RegisterUser", "Registration");
+                    //break;
                 }
             }
             else
             {
                 ViewBag.Message = "Valid";
+
+                HttpResponseMessage responseMessage = await client.PostAsJsonAsync<Korisnik>(url, Emp);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    // TempData["alertMessage"] = "USPJESNO";
+                    //ako su validni svi podaci o korisniku, potrebno je pozvati metodu za slanje maila
+
+                    Korisnik k = await responseMessage.Content.ReadAsAsync<Korisnik>();
+
+                    string mail = Emp.email.ToString();
+                    //int id = k.korisnikID;
+                    Session["id"] = k.korisnikID;
+                    SendRegistrationMail(mail);
+                }
+                else
+                    return RedirectToAction("Error");
+
+                return View("~/Views/Registration/Link.cshtml");
             }
 
+            //kraj
+
+
+            // if (responseMessage.IsSuccessStatusCode)
+            // {
+            //return RedirectToAction("Index", "Home");
+            //}
+            //return RedirectToAction("Error");
+        }
+
+
+        // GET: /Registration/
+        /*public ActionResult Index()
+        {
             return View();
         }*/
-	}
+
+
+        /*  [HttpPost]
+          public ActionResult ValidateCaptcha()
+          {
+              var response = Request["g-recaptcha-response"];
+              //secret that was generated in key value pair
+              const string secret = "6LcRYx8TAAAAAGlbk0C8WvSBIFjpzZ6j1pTIQCuC";
+
+              var client = new WebClient();
+              var reply =
+                  client.DownloadString(
+                      string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+
+              var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
+
+              //when response is false check for the error message
+              if (!captchaResponse.Success)
+              {
+                  if (captchaResponse.ErrorCodes.Count <= 0) return View();
+
+                  var error = captchaResponse.ErrorCodes[0].ToLower();
+                  switch (error)
+                  {
+                      case ("missing-input-secret"):
+                          ViewBag.Message = "The secret parameter is missing.";
+                          break;
+                      case ("invalid-input-secret"):
+                          ViewBag.Message = "The secret parameter is invalid or malformed.";
+                          break;
+
+                      case ("missing-input-response"):
+                          ViewBag.Message = "The response parameter is missing.";
+                          break;
+                      case ("invalid-input-response"):
+                          ViewBag.Message = "The response parameter is invalid or malformed.";
+                          break;
+
+                      default:
+                          ViewBag.Message = "Error occured. Please try again";
+                          break;
+                  }
+              }
+              else
+              {
+                  ViewBag.Message = "Valid";
+              }
+
+              return View();
+          }*/
+    }
 }

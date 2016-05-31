@@ -10,12 +10,17 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using ServisTextIT.Models;
 using NWTServis.Models;
+using System.Text;
 
 namespace NWTServis
 {
     public class LoginController : ApiController
     {
+
+
+
         private TextITDbContext db = new TextITDbContext();
+
 
         [ResponseType(typeof(Korisnik))]
         [HttpPost]
@@ -30,17 +35,58 @@ namespace NWTServis
             }
             if (LoginKorisnik(model.Username, model.Password))
             {
+                List<Korisnik> korisnici = db.korisnici.Where(k => k.korisnickoIme == model.Username).ToList();
                 Korisnik korisnik = new Korisnik();
-                korisnik = db.korisnici.Where(k => k.korisnickoIme == model.Username && k.sifra == model.Password).FirstOrDefault();
-                return Ok(korisnik);
+                for (int i = 0; i < korisnici.Count(); i++)
+                {
+                    String salt = korisnici[i].salt;
+                    String sifrabaza = korisnici[i].sifra;
 
+                    if (sifrabaza == GenerateSHA256Hash(model.Password, salt))
+                    {
+                        korisnik = korisnici[i];
+                        return Ok(korisnik);
+                    }
+                }
             }
             return NotFound();
         }
+
+
         private bool LoginKorisnik(string korisnickoIme, string sifra)
         {
-            return db.korisnici.Count(e => e.korisnickoIme == korisnickoIme && e.sifra == sifra) > 0;
+            return db.korisnici.Count(e => e.korisnickoIme == korisnickoIme) > 0;
         }
+
+        public static String ByteArrayToHexString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+
+            foreach (byte b in ba)
+            {
+                hex.AppendFormat("{0:x2}", b);
+            }
+            return hex.ToString();
+        }
+
+        public String CreateSalt(int size)
+        {
+            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            var buff = new byte[size];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
+
+
+        public String GenerateSHA256Hash(String input, String salt)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
+            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+            String str = ByteArrayToHexString(hash);
+            return str;
+        }
+
 
         //// GET api/Login
         //public IQueryable<Korisnik> Getkorisnici()

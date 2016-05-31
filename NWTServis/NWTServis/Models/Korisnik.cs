@@ -32,9 +32,9 @@ namespace ServisTextIT.Models
 
         [DisplayName("Sifra:")]
         [Required(ErrorMessage = "Niste unijeli sifru !")]
-        [DataType(DataType.Password)]
+      //  [DataType(DataType.Password)]
         [StringLength(255, MinimumLength = 8)]
-        [MembershipPassword()]
+     //   [MembershipPassword()]
         public string sifra { get; set; }
 
         [DisplayName("Email:")]

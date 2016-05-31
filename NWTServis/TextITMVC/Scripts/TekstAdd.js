@@ -13,7 +13,7 @@ app.controller('TekstAdd', ["$scope", "$http", function ($scope, $http) {
             korisnikID: sessionStorage.getItem("ID")
             
         }
-        $http.post("http://textit.azurewebsites.net/api/Tekst/", $scope.tekst).success(function (response) {
+        $http.post("http://localhost:3106/api/Tekst/", $scope.tekst).success(function (response) {
             window.location = "http://localhost:36729/Tekst/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokušajte ponovo.");
