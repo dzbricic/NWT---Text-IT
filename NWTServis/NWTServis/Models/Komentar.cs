@@ -20,8 +20,9 @@ namespace ServisTextIT.Models
         public int korisnikID { get; set; }
         [JsonIgnore]
         public virtual Korisnik korisnik { get; set; }
-
-
+        public int Tekst_tekstID { get; set; }
+        [JsonIgnore]
+        public virtual Tekst tekst { get; set; }
 
     }
 }

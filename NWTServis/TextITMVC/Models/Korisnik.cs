@@ -54,7 +54,6 @@ namespace ServisTextIT.Models
         public bool banovan { get; set; }
         public string salt { get; set; }
         public List<Tekst> tekst { get; set; }
-        public List<Komentar> komentari { get; set; }
 
         public Korisnik()
         {

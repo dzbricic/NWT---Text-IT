@@ -19,7 +19,7 @@ namespace NWTServis
         // GET api/Korisnik
         public IQueryable<Korisnik> Getkorisnici()
         {
-            return db.korisnici.Where(k => k.banovan == false);
+            return db.korisnici;
         }
 
         // GET api/Korisnik/5
@@ -89,15 +89,12 @@ namespace NWTServis
         public IHttpActionResult DeleteKorisnik(int id)
         {
             Korisnik korisnik = db.korisnici.Find(id);
-
             if (korisnik == null)
             {
                 return NotFound();
             }
 
-            korisnik.banovan = true;
-            //db.korisnici.Remove(korisnik);
-            db.Entry(korisnik).State = EntityState.Modified;
+            db.korisnici.Remove(korisnik);
             db.SaveChanges();
 
             return Ok(korisnik);

@@ -190,7 +190,6 @@ C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.Owin.xml
-C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.dll
 C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.pdb
 C:\Users\dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\NWTServis.dll.config

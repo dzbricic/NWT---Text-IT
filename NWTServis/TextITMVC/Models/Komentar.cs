@@ -18,6 +18,8 @@ namespace ServisTextIT.Models
         public DateTime datumObjave { get; set; }
         public int korisnikID { get; set; }
         public virtual Korisnik korisnik { get; set; }
+        public int Tekst_tekstID { get; set; }
+        public virtual Tekst tekst { get; set; }
 
 
 
