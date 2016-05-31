@@ -189,6 +189,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\httpClient.cs" />
     <Compile Include="Controllers\KomentarController.cs" />
+    <Compile Include="Controllers\MojaLista.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\TekstController.cs" />
     <Compile Include="Controllers\KorisnikController.cs" />

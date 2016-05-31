@@ -13,7 +13,7 @@ namespace TextITMVC
 
         public MojaLista()
         {
-            brojac = 0; 
+            brojac = 0;
         }
 
         public MojaLista(Korisnik k, int br)
@@ -32,7 +32,7 @@ namespace TextITMVC
         {
             get { return k; }
             set { k = value; }
-        } 
-       
+        }
+
     }
 }
