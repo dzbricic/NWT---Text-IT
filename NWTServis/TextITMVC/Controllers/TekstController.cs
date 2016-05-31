@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using TextITMVC.Models;
 
@@ -120,8 +121,144 @@ namespace TextITMVC.Controllers
         }
 
 
+         //akcija za dijagram - broj tekstova po danima
+        public async Task<ActionResult> KorisnikBrojTekstova()
+        {
+            List<MojaLista> t = new List<MojaLista>();
+            HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
+            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
+            if (responseMessage.IsSuccessStatusCode && responseMessage1.IsSuccessStatusCode)
+            {
+                //sve tekstove smjesti u listu te
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var Tekstovi = JsonConvert.DeserializeObject<List<Tekst>>(responseData);
+                List<Tekst> te = await responseMessage.Content.ReadAsAsync<List<Tekst>>();
+
+                // sve korisnike smjesti u listu ko
+                var responseData1 = responseMessage1.Content.ReadAsStringAsync().Result;
+                var Korisnici = JsonConvert.DeserializeObject<List<Korisnik>>(responseData1);
+                List<Korisnik> ko = await responseMessage1.Content.ReadAsAsync<List<Korisnik>>();
+
+                //kreiramo MojaLista - sastoji se iz korisnika i brojaca njegovih tekstova
+                
+                for (int i = 0; i < ko.Count; i++)
+                {
+                    int idKo = ko[i].korisnikID;
+                    int brojac = 0;
+                    foreach (Tekst m in te)
+                    {
+                        if (m.korisnikID == idKo)
+                        {
+                            brojac++;
+                        }
+                    }
+                    MojaLista var = new MojaLista(ko[i], brojac);
+                    t.Add(var);
+                }
+
+            }
+
+            List<String> idList = new List<String>();
+            List<int> brojacList = new List<int>();
+            foreach(MojaLista l in t)
+            {
+                idList.Add(l.K.korisnickoIme);
+                brojacList.Add(l.Brojac);
+            }
+           
+            IEnumerable<String> resultid = idList.ToList();
+            IEnumerable<int> resulttekst = brojacList.ToList();
+            
+            var key = new Chart(width: 600, height: 400)
+            
+            .AddTitle("Broj tekstova po korisniku")
+            .AddSeries(
+                chartType: "bar",
+               // legend: "Rainfall",
+                name: "Sabinaaa",
+                xValue: resultid, xField: "KORISNIK",
+                yValues: resulttekst, yFields: "TEKST")
+               
+            .Write();               
+           
+
+            return null;
+        }
+
+        public ActionResult Dijagram()
+        {
+            return View();
+        }
+
+        //akcija za dijagram - broj korisnika, broj tekstova, broj komentara
+
+        public async Task<ActionResult> PitaDijagram()
+        {
+           
+            HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
+            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
+            string url2 = "http://localhost:3106/api/komentar";
+            HttpResponseMessage responseMessage2 = await client.GetAsync(url2);
+            int brojtekstova = 0;
+            int brojkorisnika = 0;
+            int brojkomentara = 0;
+            List<String> ln = new List<String>();
+            List<int> br = new List<int>();
+
+            if (responseMessage.IsSuccessStatusCode && responseMessage1.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
+            {
+                //sve tekstove smjesti u listu te
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var Tekstovi = JsonConvert.DeserializeObject<List<Tekst>>(responseData);
+                List<Tekst> te = await responseMessage.Content.ReadAsAsync<List<Tekst>>();
+
+                // sve korisnike smjesti u listu ko
+                var responseData1 = responseMessage1.Content.ReadAsStringAsync().Result;
+                var Korisnici = JsonConvert.DeserializeObject<List<Korisnik>>(responseData1);
+                List<Korisnik> ko = await responseMessage1.Content.ReadAsAsync<List<Korisnik>>();
+
+                // sve komentare smjesti u listu comm
+                var responseData2 = responseMessage2.Content.ReadAsStringAsync().Result;
+                var Komentari = JsonConvert.DeserializeObject<List<Komentar>>(responseData2);
+                List<Komentar> comm = await responseMessage2.Content.ReadAsAsync<List<Komentar>>();
+
+                brojkomentara = comm.Count;
+                brojkorisnika = ko.Count;
+                brojtekstova = te.Count;
+
+                ln.Add("Komentari");
+                br.Add(brojkomentara);
+                ln.Add("Korisnici");
+                br.Add(brojkorisnika);
+                ln.Add("Tekstovi");
+                br.Add(brojtekstova);
+
+            }
+            
+           
+            IEnumerable<String> nazivi = ln.ToList();
+            IEnumerable<int> brojke = br.ToList();
+
+            var key = new Chart(width: 600, height: 400)
+
+            .AddTitle("Broj tekstova, komentara i korisnika")
+            .AddSeries(
+                "Default", 
+                chartType: "Pie",
+                // legend: "Rainfall",                
+                xValue: nazivi, 
+                yValues: brojke)
+
+            .Write();
 
 
+            return null;
+        }
 
     }
-}
+
+
+  }
+ 

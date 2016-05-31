@@ -47,10 +47,12 @@
                     <div ng-controller="singlePage">
                         <ul class="nav navbar-nav">
                             <li> <a id="home" href="/"> {{ "POCETNA" | translate }} </a></li>
+                            <li> <a id="dijagram" href="/tekst/dijagram"> {{ "STATISTIKA" | translate }} </a></li>
                             <li> <a id="tekstovi" href="/tekst"> {{ "TEKSTOVI" | translate }} </a></li>
                             <li> <a id="profil" href="/korisnik/mojprofil">{{ "MOJPROFIL" | translate }}  </a></li>
                             <li> <a id="korisnici" href="/korisnik"> {{ "KORISNICI" | translate }} </a></li>
                             <li> <a id="komentari" href="/komentar"> {{ "KOMENTARI" | translate }} </a></li>
+                            
                         </ul>
                         @Html.Partial("_LoginPartial")
 
