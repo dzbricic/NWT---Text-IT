@@ -17,7 +17,7 @@ app.controller('Korisnik', ["$scope", "$http", function ($scope, $http) {
     $scope.deleteKorisnik = function (k) {
         //$http.delete("http://textit.azurewebsites.net/api/Korisnik/" + k.korisnikID).success(function (data, status) {
         $http.delete("http://localhost:3106/api/Korisnik/" + k.korisnikID).success(function (data, status) {
-            alert("Uspješno ste obrisali korisnika!");
+            alert("Uspješno ste banovali korisnika!");
         }).error(function (data, status) {
             alert("Neuspješno!");
         });
