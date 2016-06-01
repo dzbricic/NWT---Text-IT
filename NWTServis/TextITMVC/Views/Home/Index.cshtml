@@ -27,7 +27,7 @@
             <br />
             <div style="text-align:right; font-style:italic; font-size:20px">
                 <div style="text-align:right; font-size:12px">Objavio/la: {{tekst.korisnikID}}</div>
-                <button type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
+                <button id="dodajKomentar" type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
                 @*@Html.ActionLink("Komentari", "Create", "Komentar", new { id =  tekst.tekstID })*@
             </div>
 
@@ -44,4 +44,17 @@
    
 </div>
 
-   
+<script>
+
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('dodajKomentar').style.visibility = 'visible';
+    }
+    else if (tipKorisnika == "User") {
+        document.getElementById('dodajKomentar').style.visibility = 'visible';
+    }
+    else {
+        document.getElementById('dodajKomentar').style.visibility = 'hidden';
+    }
+
+</script>
