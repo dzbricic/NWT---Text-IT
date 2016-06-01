@@ -258,3 +258,4 @@ C:\Users\dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\bin\System.Web.Http.O
 C:\Users\dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache
 C:\Users\dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.dll
 C:\Users\dzenana\Desktop\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.pdb
+C:\Users\Saudin\Documents\GitHub\NWT---Text-IT\NWTServis\NWTServis\obj\Debug\NWTServis.csprojResolveAssemblyReference.cache

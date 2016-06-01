@@ -59,7 +59,8 @@ namespace ServisTextIT.Models
 
         [JsonIgnore]
         public List<Tekst> tekst { get; set; }
-         
+        [JsonIgnore]
+        public List<Komentar> komentari { get; set; }
     
 
 
