@@ -553,7 +553,185 @@ namespace TextITMVC.Controllers
             return null;
         }
 
+        //akcija - broj tekstova po godinama
+        public async Task<ActionResult> TekstGodinaDijagram()
+        {
 
+            HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
+
+            List<String> godine = new List<String>();
+            godine.Add("2014");
+            godine.Add("2015");
+            godine.Add("2016");
+
+            List<int> brojaci = new List<int>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                brojaci.Add(0);
+            }
+
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                // sve korisnike smjesti u listu ko
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var Tekstovi = JsonConvert.DeserializeObject<List<Tekst>>(responseData);
+                List<Tekst> te = await responseMessage.Content.ReadAsAsync<List<Tekst>>();
+
+
+                for (int i = 0; i < te.Count; i++)
+                {
+
+                    if (te[i].datumObjave.Year == 2014)
+                    {
+                        brojaci[0]++;
+                    }
+                    else if (te[i].datumObjave.Year == 2015)
+                    {
+                        brojaci[1]++;
+                    }
+                    else if (te[i].datumObjave.Year == 2016)
+                    {
+                        brojaci[2]++;
+                    }
+
+
+                }
+            }
+            IEnumerable<String> nazivi = godine.ToList();
+            IEnumerable<int> brojke = brojaci.ToList();
+
+            var key = new Chart(width: 600, height: 400)
+
+            .AddTitle("Broj tekstova po godini")
+            .AddSeries(
+                "Default",
+                chartType: "Column",
+                // legend: "Rainfall",                
+                xValue: nazivi,
+                yValues: brojke)
+
+            .Write();
+
+
+
+
+            return null;
+        }
+
+        //akcija - broj tekstova po mjesecima
+        public async Task<ActionResult> TekstMjesecDijagram()
+        {
+
+            HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
+
+            List<String> mjeseci = new List<String>();
+            mjeseci.Add("Januar");
+            mjeseci.Add("Februar");
+            mjeseci.Add("Mart");
+            mjeseci.Add("April");
+            mjeseci.Add("Maj");
+            mjeseci.Add("Juni");
+            mjeseci.Add("Juli");
+            mjeseci.Add("August");
+            mjeseci.Add("Septembar");
+            mjeseci.Add("Oktobar");
+            mjeseci.Add("Novembar");
+            mjeseci.Add("Decembar");
+            List<int> brojaci = new List<int>();
+
+            for (int i = 0; i < 12; i++)
+            {
+                brojaci.Add(0);
+            }
+
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                // sve korisnike smjesti u listu ko
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var Tekstovi = JsonConvert.DeserializeObject<List<Tekst>>(responseData);
+                List<Tekst> te = await responseMessage.Content.ReadAsAsync<List<Tekst>>();
+
+
+                for (int i = 0; i < te.Count; i++)
+                {
+
+                    if (te[i].datumObjave.Month == 1)
+                    {
+                        brojaci[0]++;
+                    }
+                    else if (te[i].datumObjave.Month == 2)
+                    {
+                        brojaci[1]++;
+                    }
+                    else if (te[i].datumObjave.Month == 3)
+                    {
+                        brojaci[2]++;
+                    }
+                    else if (te[i].datumObjave.Month == 4)
+                    {
+                        brojaci[3]++;
+                    }
+                    else if (te[i].datumObjave.Month == 5)
+                    {
+                        brojaci[4]++;
+                    }
+                    else if (te[i].datumObjave.Month == 6)
+                    {
+                        brojaci[5]++;
+                    }
+                    else if (te[i].datumObjave.Month == 7)
+                    {
+                        brojaci[6]++;
+                    }
+                    else if (te[i].datumObjave.Month == 8)
+                    {
+                        brojaci[7]++;
+                    }
+                    else if (te[i].datumObjave.Month == 9)
+                    {
+                        brojaci[8]++;
+                    }
+                    else if (te[i].datumObjave.Month == 10)
+                    {
+                        brojaci[9]++;
+                    }
+                    else if (te[i].datumObjave.Month == 11)
+                    {
+                        brojaci[10]++;
+                    }
+                    else if (te[i].datumObjave.Month == 12)
+                    {
+                        brojaci[11]++;
+                    }
+                }
+
+
+            }
+            IEnumerable<String> nazivi = mjeseci.ToList();
+            IEnumerable<int> brojke = brojaci.ToList();
+
+            var key = new Chart(width: 600, height: 400)
+
+            .AddTitle("Broj tekstova po mjesecu")
+            .AddSeries(
+                "Default",
+                chartType: "Column",
+                // legend: "Rainfall",                
+                xValue: nazivi,
+                yValues: brojke)
+
+            .Write();
+
+
+
+
+            return null;
+        }
     }
 
 
