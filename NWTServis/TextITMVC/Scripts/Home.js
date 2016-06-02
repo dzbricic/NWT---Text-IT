@@ -2,7 +2,6 @@
 
 app.controller('Tekst', ["$scope", "$http", function ($scope, $http) {
     $scope.tekstovi = []
-   
     $scope.currentPage = 1;
     $scope.pageSize = 4;
     $scope.itemsPerPage = 4;
@@ -26,7 +25,6 @@ app.controller('Tekst', ["$scope", "$http", function ($scope, $http) {
     }
 
     $scope.createKomentar = function (id) {
-        alert(id);
         sessionStorage.setItem("tekstID", id);
         window.location = "http://localhost:36729/Komentar/Create";
     }

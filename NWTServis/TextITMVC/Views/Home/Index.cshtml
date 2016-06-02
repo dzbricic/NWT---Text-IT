@@ -28,12 +28,10 @@
             <div style="text-align:right; font-style:italic; font-size:20px">
                 <div style="text-align:right; font-size:12px">Objavio/la: {{tekst.korisnikID}}</div>
                 <button id="dodajKomentar" type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
-                @*@Html.ActionLink("Komentari", "Create", "Komentar", new { id =  tekst.tekstID })*@
             </div>
 
         </div>
         <div style="align-content:center">
-           @* <uib-pagination total-items="tekstovi.lenght" ng-model="currentPage" ng-disabled="false" items-per-page="pageSize"></uib-pagination>*@
             <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" items-per-page="itemsPerPage"></uib-pagination>
             <pre>Trenutno ste na stranici: {{currentPage}}</pre>
             
