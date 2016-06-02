@@ -36,7 +36,7 @@ app.controller('KorisnikEdit', ["$scope", "$http", function ($scope, $http) {
             sifra: $scope.korisnik.sifra,
             potvrda: $scope.korisnik.potvrda
         }
-        $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
+        $http.post("http://localhost:3106/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
             alert("Uspješno ste izvršili izmjenu!");
             window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {

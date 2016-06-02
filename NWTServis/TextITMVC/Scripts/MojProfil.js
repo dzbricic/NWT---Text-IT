@@ -26,9 +26,9 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
        
     }
 
-    $scope.updateKorisnik = function (k) {
+    $scope.updateKorisnikMojProfil = function (k) {
         $scope.korisnik = {
-            id: $scope.korisnik.id,
+            korisnikID: sessionStorage.getItem("ID"),
             ime: $scope.korisnik.ime,
             prezime: $scope.korisnik.prezime,
             korisnickoIme: $scope.korisnik.korisnickoIme,
@@ -38,8 +38,8 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
             potvrda: sessionStorage.getItem("potvrda")
            
         }
-        $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.id, $scope.korisnik).success(function (response) {
-            alert("OK");
+        $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.korisnikID, $scope.korisnik).success(function (response) {
+            alert("Uspjesno ste izmijenili svoje podatke!");
             window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
