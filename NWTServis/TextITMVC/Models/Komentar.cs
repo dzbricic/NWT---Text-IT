@@ -16,12 +16,12 @@ namespace ServisTextIT.Models
         [Required(ErrorMessage = "Niste unijeli komentar !")]
         public string sadrzaj { get; set; }
         public DateTime datumObjave { get; set; }
-        public int korisnikID { get; set; }
-        public virtual Korisnik korisnik { get; set; }
-        public int Tekst_tekstID { get; set; }
+        public int tekstID { get; set; }
+        
         public virtual Tekst tekst { get; set; }
-
-
+        public int korisnikOstavioID { get; set; }
+     
+        public virtual Korisnik korisnikOstavio { get; set; }
 
     }
 }

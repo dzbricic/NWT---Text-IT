@@ -126,7 +126,7 @@ namespace TextITMVC.Controllers
         {
             List<MojaLista> t = new List<MojaLista>();
             HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
-            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            string url1 = "http://localhost:3106/api/korisnik";
             HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
             if (responseMessage.IsSuccessStatusCode && responseMessage1.IsSuccessStatusCode)
             {
@@ -197,7 +197,7 @@ namespace TextITMVC.Controllers
         {
            
             HttpResponseMessage responseMessage = await client.GetAsync(url); // pokupi sve tekstove
-            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            string url1 = "http://localhost:3106/api/korisnik";
             HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
             string url2 = "http://localhost:3106/api/komentar";
             HttpResponseMessage responseMessage2 = await client.GetAsync(url2);
@@ -261,7 +261,7 @@ namespace TextITMVC.Controllers
         public async Task<ActionResult> KomentarDijagram()
         {
 
-            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            string url1 = "http://localhost:3106/api/korisnik";
             HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
             string url2 = "http://localhost:3106/api/komentar";
             HttpResponseMessage responseMessage2 = await client.GetAsync(url2); // pokupi sve komentare
@@ -288,7 +288,7 @@ namespace TextITMVC.Controllers
                     int brojac = 0;
                     for (int j = 0; j < comm.Count; j++)
                     {
-                        if (koid == comm[j].korisnikID)
+                        if (koid == comm[j].korisnikOstavioID)
                         {
                             brojac++;
                         }
@@ -330,8 +330,8 @@ namespace TextITMVC.Controllers
         public async Task<ActionResult> PitaDijagramAdminUser()
         {
 
-            HttpResponseMessage responseMessage = await client.GetAsync(url); 
-            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            HttpResponseMessage responseMessage = await client.GetAsync(url);
+            string url1 = "http://localhost:3106/api/korisnik";
             HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
             
             int brojadmina = 0;
@@ -498,7 +498,7 @@ namespace TextITMVC.Controllers
         {
 
             HttpResponseMessage responseMessage = await client.GetAsync(url);
-            string url1 = "http://textit.azurewebsites.net/api/korisnik";
+            string url1 = "http://localhost:3106/api/korisnik";
             HttpResponseMessage responseMessage1 = await client.GetAsync(url1); // pokupi sve korisnike
 
             int brojetf = 0;
