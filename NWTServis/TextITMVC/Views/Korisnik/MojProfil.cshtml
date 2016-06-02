@@ -12,6 +12,10 @@
             <td><label style="visibility:hidden">ID</label></td>
             <td><input ng-model="korisnik.korisnikID" style="visibility:hidden" /></td>
         </tr>
+        <tr>
+            <td><label style="visibility:hidden">salt</label></td>
+            <td><input ng-model="korisnik.salt" style="visibility:hidden" /></td>
+        </tr>
         
         <tr>
             <td><label>Ime</label></td>
@@ -31,11 +35,16 @@
         </tr>
         <tr>
             <td><label>Tip korisnika</label></td>
-            <td><input ng-model="korisnik.tipKorisnika" /></td>
+            <td>
+                <select id="tipKorisnika" style="width:177px">
+                    <option ng-model="korisnik.tipKorisnika">{{korisnik.tipKorisnika}}</option>
+                    <option id="tip" value="" title="" ng-model="korisnik.tipKorisnika"></option>
+                </select>
+            </td>
         </tr>
         <tr>
-            <td><label>Sifra</label></td>
-            <td><input ng-model="korisnik.sifra"/></td>
+            <td><label style="visibility:hidden">Sifra</label></td>
+            <td><input style="visibility:hidden" ng-model="korisnik.sifra" /></td>
         </tr>
         <tr>
             <td><label style="visibility:hidden">Potvrda</label></td>
@@ -46,3 +55,18 @@
     <button type="button" ng-click="updateKorisnikMojProfil(korisnik.id)" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni svoje podatke</button>
 
 </div>
+
+<script>
+
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('tipKorisnika').disabled = false;
+        document.getElementById("tip").text = 'User';
+    }
+    else {
+        document.getElementById('tipKorisnika').disabled = true;
+        document.getElementById("tip").style.visibility = "hidden"
+    }
+
+
+</script>

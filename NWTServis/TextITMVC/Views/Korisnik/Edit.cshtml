@@ -14,7 +14,7 @@
             <table>
                 <tr>
                     <td><label style="visibility:hidden">ID</label></td>
-                    <td><input ng-model="korisnik.id" style="visibility:hidden" /></td>
+                    <td><input ng-model="korisnik.korisnikID" style="visibility:hidden" /></td>
                 </tr>
                 <tr>
                     <td><label>Ime</label></td>
@@ -34,7 +34,12 @@
                 </tr>
                 <tr>
                     <td><label>Tip korisnika</label></td>
-                    <td><input ng-model="korisnik.tipKorisnika" /></td>
+                    <td>
+                        <select id="tipKorisnika" style="width:177px">
+                            <option ng-model="korisnik.tipKorisnika">{{korisnik.tipKorisnika}}</option>
+                            <option id="tip" value="" title="" ng-model="korisnik.tipKorisnika1"></option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Potvrda</label></td>
@@ -44,7 +49,14 @@
                     <td><label style="visibility:hidden">Sifra</label></td>
                     <td><input ng-model="korisnik.sifra" style="visibility:hidden"/></td>
                 </tr>
-                
+                <tr>
+                    <td><label style="visibility:hidden">Banovan</label></td>
+                    <td><input ng-model="korisnik.banovan" style="visibility:hidden" /></td>
+                </tr>
+                <tr>
+                    <td><label style="visibility:hidden">Salt</label></td>
+                    <td><input ng-model="korisnik.salt" style="visibility:hidden" /></td>
+                </tr>
                     
             </table>
             <button type="button" ng-click="updateKorisnik('@Model.korisnikID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni korisnika</button>
@@ -58,3 +70,17 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+
+    var tipKorisnika = sessionStorage.getItem("tipKorisnika");
+    if (tipKorisnika == "admin") {
+        document.getElementById('tipKorisnika').disabled = false;
+        document.getElementById("tip").text = 'User';
+    }
+    else {
+        document.getElementById('tipKorisnika').disabled = true;
+        document.getElementById("tip").style.visibility = "hidden"
+    }
+
+
+</script>

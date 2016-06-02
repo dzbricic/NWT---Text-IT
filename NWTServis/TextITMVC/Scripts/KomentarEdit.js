@@ -25,7 +25,7 @@ app.controller('KomentarEdit', ["$scope", "$http", function ($scope, $http) {
             datumObjave: new Date(),
             korisnikID: sessionStorage.getItem("ID")
         }
-        $http.post("http://localhost:3106/api/Komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
+        $http.put("http://localhost:3106/api/Komentar/" + $scope.komentar.id, $scope.komentar).success(function (response) {
             alert("Uspješno ste izvršili izmjenu!");
             window.location = "http://localhost:36729/komentar/Index";
         }).error(function (data, status) {

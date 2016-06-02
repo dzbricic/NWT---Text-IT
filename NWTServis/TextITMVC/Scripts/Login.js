@@ -18,6 +18,7 @@ app.controller('Login', ["$scope", "$http", function ($scope, $http) {
                 sessionStorage.setItem("tipKorisnika", arr[6]);
                 sessionStorage.setItem("potvrda", arr[7]);
                 sessionStorage.setItem("banovan", arr[8]);
+                sessionStorage.setItem("salt", arr[9]);
                 
                 if (arr[7] == true && arr[8] == 0)
                 {

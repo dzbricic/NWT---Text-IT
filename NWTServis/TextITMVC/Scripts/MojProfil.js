@@ -35,7 +35,9 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
             email: $scope.korisnik.email,
             tipKorisnika: $scope.korisnik.tipKorisnika,
             sifra: $scope.korisnik.sifra,
-            potvrda: sessionStorage.getItem("potvrda")
+            potvrda: sessionStorage.getItem("potvrda"),
+            salt: sessionStorage.getItem("salt")
+                
            
         }
         $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.korisnikID, $scope.korisnik).success(function (response) {
