@@ -20,7 +20,12 @@ app.config(["$translateProvider", function ($translateProvider) {
         ODJAVA: "Log out",
         KOMENTARI: "Comments",
         MOJPROFIL: "My profile",
-        STATISTIKA: "Statistics"
+        STATISTIKA: "Statistics",
+        PRVA: "First",
+        PRETHODNA: "Previous",
+        SLJEDECA: "Next",
+        ZADNJA: "Last",
+        DOBRODOSLI: "Welcome to our little sweety online library. Feel free to open your mind and soul and share your thoughts with us!"
     })
     $translateProvider.translations('bs', {
         KORISNICI: 'Korisnici',
@@ -36,7 +41,12 @@ app.config(["$translateProvider", function ($translateProvider) {
         ODJAVA: "Odjava",
         KOMENTARI: "Komentari",
         MOJPROFIL: "Moj profil",
-        STATISTIKA: "Statistika"
+        STATISTIKA: "Statistika",
+        PRVA: "Prva",
+        PRETHODNA: "Prethodna",
+        SLJEDECA: "Sljedeća",
+        ZADNJA: "Zadnja",
+        DOBRODOSLI: "Dobrodošli u naš mali književni kutak. Osjećajte se slobodnim da ostavite svoja djela!"
     });
     $translateProvider.preferredLanguage('bs');
 }])

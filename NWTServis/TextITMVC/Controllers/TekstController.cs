@@ -170,7 +170,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> resultid = idList.ToList();
             IEnumerable<int> resulttekst = brojacList.ToList();
             
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
             
             .AddTitle("Broj tekstova po korisniku")
             .AddSeries(
@@ -241,7 +241,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = ln.ToList();
             IEnumerable<int> brojke = br.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj tekstova, komentara i korisnika")
             .AddSeries(
@@ -308,7 +308,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = korisnickoIme.ToList();
             IEnumerable<int> brojke = brojKomentara.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj tekstova, komentara i korisnika")
             .AddSeries(
@@ -365,7 +365,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = ln.ToList();
             IEnumerable<int> brojke = br.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj administratora i korisnika")
             .AddSeries(
@@ -476,9 +476,9 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = mjeseci.ToList();
             IEnumerable<int> brojke = brojaci.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
-            .AddTitle("Broj tekstova po mjesecu")
+            .AddTitle("Broj komentara po mjesecu")
             .AddSeries(
                 "Default",
                 chartType: "bar",
@@ -537,7 +537,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = ln.ToList();
             IEnumerable<int> brojke = br.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj korisnika s različitim e-mail adresama")
             .AddSeries(
@@ -603,7 +603,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = godine.ToList();
             IEnumerable<int> brojke = brojaci.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj tekstova po godini")
             .AddSeries(
@@ -715,7 +715,7 @@ namespace TextITMVC.Controllers
             IEnumerable<String> nazivi = mjeseci.ToList();
             IEnumerable<int> brojke = brojaci.ToList();
 
-            var key = new Chart(width: 600, height: 400)
+            var key = new Chart(width: 550, height: 350)
 
             .AddTitle("Broj tekstova po mjesecu")
             .AddSeries(
