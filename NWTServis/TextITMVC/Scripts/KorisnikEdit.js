@@ -28,12 +28,14 @@ app.controller('KorisnikEdit', ["$scope", "$http", function ($scope, $http) {
     }
 
     $scope.updateKorisnik = function (k) {
+        
         $scope.korisnik = {
             korisnikID: $scope.korisnik.korisnikID, 
             ime: $scope.korisnik.ime,
             prezime: $scope.korisnik.prezime,
             korisnickoIme: $scope.korisnik.korisnickoIme,
             email: $scope.korisnik.email,
+            
             tipKorisnika: $scope.korisnik.tipKorisnika,
             sifra: $scope.korisnik.sifra,
             potvrda: $scope.korisnik.potvrda,

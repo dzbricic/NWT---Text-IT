@@ -35,9 +35,10 @@
                 <tr>
                     <td><label>Tip korisnika</label></td>
                     <td>
-                        <select id="tipKorisnika" style="width:177px">
-                            <option ng-model="korisnik.tipKorisnika">{{korisnik.tipKorisnika}}</option>
-                            <option id="tip" value="" title="" ng-model="korisnik.tipKorisnika1"></option>
+                        <select id="tipKorisnika"  style=" width:177px">
+                           
+                            <option id="tip1" value="" title="" ng-model="korisnik.tipKorisnika"></option>
+                            <option id="tip2" value="" title="" ng-model="korisnik.tipKorisnika"></option>
                         </select>
                     </td>
                 </tr>
@@ -75,11 +76,13 @@
     var tipKorisnika = sessionStorage.getItem("tipKorisnika");
     if (tipKorisnika == "admin") {
         document.getElementById('tipKorisnika').disabled = false;
-        document.getElementById("tip").text = 'User';
+        document.getElementById("tip1").text = 'Admin';
+        document.getElementById("tip2").text = 'User';
     }
     else {
         document.getElementById('tipKorisnika').disabled = true;
-        document.getElementById("tip").style.visibility = "hidden"
+        document.getElementById("tip1").text = 'User';
+        document.getElementById("tip2").text = 'Admin';
     }
 
 
