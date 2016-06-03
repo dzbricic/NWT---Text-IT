@@ -16,6 +16,14 @@ app.controller('Komentari', ["$scope", "$http", function ($scope, $http) {
             alert("Neuspješno!");
         });
     }
+    $scope.getKomentari = function () {
+        $http.get("http://localhost:3106/api/komentar", $scope.komentari).success(function (data, status) {
+            $scope.komentari = data;
+
+        }).error(function (data, status) {
+            alert("Neuspješno!");
+        });
+    }
 
     $scope.editKomentar = function (k) {
         window.location = "http://localhost:36729/Komentar/Edit/" + k.komentarID, k;
