@@ -5,12 +5,12 @@
 }
 
 <h2>Komentari</h2>
-<div ng-controller="Komentari" data-ng-init="getKomentar()">
-    <button>
+<div ng-controller="Komentari" data-ng-init="getKomentari()">
+    @*<button>
         <div>
             @Html.ActionLink("Dodaj komentar", "Create")
         </div>
-    </button>
+    </button>*@
     <table class="table">
         <tr>
             <td style="font-weight:700">
@@ -21,6 +21,9 @@
             </td>
             <td style="font-weight:700">
                 Kreirao
+            </td>
+            <td style="font-weight:700">
+                Tekst
             </td>
             <td style="font-weight:700">Izbriši komentar</td>
             <td style="font-weight:700">Izmijeni komentar</td>
@@ -33,10 +36,13 @@
                 {{komentar.datumObjave}}
             </td>
             <td>
-                {{komentar.korisnikID}}
+                {{komentar.korisnikOstavioID}}
             </td>
             <td>
-                <button type="button" ng-click="deleteKomentar(komentar)" class="btn btn-primary btn-large" ng-model="komentar.komentarID">Obriši!</button>
+                {{komentar.tekstID}}
+            </td>
+            <td>
+                <button type="button" ng-click="deleteKomentar(komentar)" class="btn btn-primary btn-large" ng-model="komentar.komentarID">Obriši</button>
             </td>
             <td>
                 <button type="button" ng-click="editKomentar(komentar)" class="btn btn-primary btn-large" ng-model="komentar.komentarID">Izmijeni</button>
