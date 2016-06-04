@@ -12,7 +12,7 @@
             <div ng-repeat="tekst in tekstovi | startFrom: (currentPage - 1) * pageSize| limitTo: pageSize" class="jumbotron">
                 <input ng-model="tekst.tekstID" style="visibility:hidden" />
                 <table class="table-bordered" style="width:1020px; border-width:3px; border-color:orangered; border-collapse:collapse">
-
+                    @*Izmjena*@
                     <tr>
                         <td>
                             <label style="font-size: 20px; color: black">{{tekst.naslov}}</label>
