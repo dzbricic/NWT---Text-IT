@@ -11,6 +11,7 @@
 <h1>Tekstovi</h1>
 <div ng-controller="Tekstovi" data-ng-init="getTekst()">
     <button>
+       
         <div>
             @Html.ActionLink("Dodaj Tekst", "Create")
         </div>
@@ -26,9 +27,9 @@
             <table class="table">
                 <tr>
                     <td>
-                        <button type="button" ng-click="deleteTekst(tekst)" class="btn btn-primary btn-large" ng-model="tekst.tekstID">Obrisi!</button>
+                        <button type="button" ng-click="deleteTekst(tekst)" class="btn btn-primary btn-large" ng-model="tekst.tekstID">Obriši!</button>
                     </td>
-                    <td>
+                    <td align="right">
                         <button type="button" ng-click="editTekst(tekst)" class="btn btn-primary btn-large" ng-model="tekst.tekstID">Izmijeni</button>
                     </td>
 

@@ -11,13 +11,15 @@
             <hr />
             <div ng-repeat="tekst in tekstovi | startFrom: (currentPage - 1) * pageSize| limitTo: pageSize" class="jumbotron">
                 <input ng-model="tekst.tekstID" style="visibility:hidden" />
-                <table class="table-bordered" style="width:1020px; border-width:3px; border-color:orangered; border-collapse:collapse">
+                <div style="text-align: right; font-size: 12px; color: black; font-style:italic">Objavio/la: {{tekst.korisnikID}}</div>
+                <table class="table" style="width:1020px; border-width:3px; border-collapse:collapse">
                     @*Izmjena*@
                     <tr>
                         <td>
-                            <label style="font-size: 20px; color: black">{{tekst.naslov}}</label>
+                            <label style="font-size: 20px; color: orangered">{{tekst.naslov}}</label>
                         </td>
                     </tr>
+                    <br />
                     <tr>
                         <td>
                             <p style="font-size: 15px; color: black" ng-model="tekst">{{tekst.sadrzaj}}</p>
@@ -27,7 +29,7 @@
                 </table>
                 <br />
                 <div style="text-align:right; font-style:italic; font-size:20px">
-                    <div style="text-align: right; font-size: 12px; color: black">Objavio/la: {{tekst.korisnikID}}</div>
+                    
                     <button id="dodajKomentar" type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
                 </div>
 
