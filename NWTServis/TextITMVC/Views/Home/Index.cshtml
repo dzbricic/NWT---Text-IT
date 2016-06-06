@@ -11,7 +11,6 @@
             <hr />
             <div ng-repeat="tekst in tekstovi | startFrom: (currentPage - 1) * pageSize| limitTo: pageSize" class="jumbotron">
                 <input ng-model="tekst.tekstID" style="visibility:hidden" />
-                <div style="text-align: right; font-size: 12px; color: black; font-style:italic">Objavio/la: {{tekst.korisnikID}}</div>
                 <table class="table" style="width:1020px; border-width:3px; border-collapse:collapse">
                     @*Izmjena*@
                     <tr>
@@ -28,9 +27,10 @@
 
                 </table>
                 <br />
-                <div style="text-align:right; font-style:italic; font-size:20px">
-                    
-                    <button id="dodajKomentar" type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
+                <div style=" font-style: italic; font-size: 20px; display:block;" >
+                    <div style="text-align: left; display: inline-block; font-size: 12px; color: black; font-style: italic">Objavio/la: {{tekst.korisnikID}}</div>
+
+                    <button style=" float:right; display: inline-block;"  id="dodajkomentar" type="button" ng-click="createKomentar(tekst.tekstID)" class="btn btn-primary btn-large" ng-model="dodaj">Komentari</button>
                 </div>
 
             </div>

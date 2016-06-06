@@ -42,7 +42,7 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
         }
         $http.put("http://localhost:3106/api/Korisnik/" + $scope.korisnik.korisnikID, $scope.korisnik).success(function (response) {
             alert("Uspjesno ste izmijenili svoje podatke!");
-            window.location = "http://localhost:36729/Korisnik/Index";
+            //window.location = "http://localhost:36729/Korisnik/Index";
         }).error(function (data, status) {
             alert("Izmjena nije uspjela. Molimo pokusajte ponovo.");
         });
