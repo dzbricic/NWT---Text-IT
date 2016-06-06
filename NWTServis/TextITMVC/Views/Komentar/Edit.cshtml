@@ -21,16 +21,16 @@
             <td><input placeholder="sadrzaj" ng-model="komentar.sadrzaj" /></td>
         </tr>
         <tr>
-            <td><label>Datum objave</label></td>
-            <td><input ng-model="komentar.datumObjave"  /></td>
+            <td><label style="visibility:hidden">Datum objave</label></td>
+            <td><input ng-model="komentar.datumObjave" style="visibility:hidden" /></td>
         </tr>
         <tr>
-            <td><label>Korisnik</label></td>
-            <td><input ng-model="komentar.korisnikID" /></td>
+            <td><label style="visibility:hidden">Korisnik</label></td>
+            <td><input ng-model="komentar.korisnikID" style="visibility:hidden"/></td>
         </tr>
 
     </table>
-    <button type="button" ng-click="updateKomentar('@Model.komentarID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni komentar</button>
+    <button type="button" ng-click="updateKomentar('@Model.komentarID')" class="btn btn-primary btn-large" ng-model="izmijeni">Izmijeni</button>
 
 
 
