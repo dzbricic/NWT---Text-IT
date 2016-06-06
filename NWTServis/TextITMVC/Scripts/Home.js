@@ -27,13 +27,13 @@ app.controller('Tekst', ["$scope", "$http", function ($scope, $http) {
                     var arr = $.map(data, function (el) { return el });
 
                     arr[$scope.brojac].korisnikID = arr2[3];
-                    $scope.brojac++;
                     $scope.tekstovi.push(arr[$scope.brojac]);
+                    $scope.brojac++;
 
                 }).error(function (data, status) {
                     alert("Neuspješno!");
                 });
-                $scope.tekstovi.push(arr[i]);
+               
             }
 
 
