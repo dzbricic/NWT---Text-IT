@@ -23,7 +23,7 @@ app.controller('MojProfil', ["$scope", "$http", function ($scope, $http) {
         }).error(function (data, status) {
             alert("Neuspješno!");
         });
-       
+        $scope.tipKorisnika = ["admin", "User"];
     }
 
     $scope.updateKorisnikMojProfil = function (k) {

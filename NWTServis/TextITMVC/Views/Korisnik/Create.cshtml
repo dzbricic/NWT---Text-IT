@@ -35,7 +35,13 @@
         </tr>
         <tr>
             <td><label>Tip korisnika</label></td>
-            <td><input ng-model="korisnik.tipKorisnika" /></td>
+            <td>
+                <select id="tipKorisnika" style="width:177px" ng-model="korisnik.tipKorisnika" ng-change="selektovaniKorisnik(korisnik)">
+                    <option>admin</option>
+                    <option>User</option>
+                </select>
+            </td>
+
         </tr>
         <tr>
             <td><label>Potvrda</label></td>
